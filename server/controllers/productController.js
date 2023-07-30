@@ -1,5 +1,6 @@
+const e = require("express");
 const { Product } = require("../models/productModel");
-const errorHandler = require("../utils/errorHandler");
+// const errorHandler = require("../utils/errorHandler");
 
 const createProduct = async (req, res, next) => {
   // try {
@@ -24,15 +25,18 @@ const createProduct = async (req, res, next) => {
 };
 
 const getAllProducts = async (req, res) => {
-  const products = await Product.find();
+  const product = await Product.find();
 
   if (!product) {
-    return next(new errorHandler("Product not found!!", 404));
+    return res
+      .status(500)
+      .json({ success: false, message: "Product not found" });
+    // return next(new errorHandler("Product not found!!", 404));
   }
 
   res.status(200).json({
     success: true,
-    products,
+    product,
   });
 };
 
@@ -40,15 +44,15 @@ const getAllProducts = async (req, res) => {
 const updateProduct = async (req, res, next) => {
   let product = await Product.findById(req.params.id);
 
-  // if (!product) {
-  //   return res
-  //     .status(500)
-  //     .json({ success: false, message: "Product not found" });
-  // }
-
   if (!product) {
-    return next(new errorHandler("Product not found!!", 404));
+    return res
+      .status(500)
+      .json({ success: false, message: "Product not found" });
   }
+
+  // if (!product) {
+  //   return next(new errorHandler("Product not found!!", 404));
+  // }
 
   product = await Product.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
@@ -66,15 +70,19 @@ const updateProduct = async (req, res, next) => {
 const getProductDetails = async (req, res, next) => {
   const product = await Product.findById(req.params.id);
 
-  // if (!product) {
-  //   return res
-  //     .status(500)
-  //     .json({ success: false, message: "Product not found" });
-  // }
-
   if (!product) {
-    return next(new errorHandler("Product not foundddddd!!", 404));
+    return res
+      .status(500)
+      .json({ success: false, message: "Product not found" });
   }
+
+  // if (!product) {
+  //   // console.log("here");
+  //   // console.log(new errorHandler("product not found", 300));
+  //   // return next("Couldn't found product");
+
+  //   return next(new errorHandler("Product not foundddddd!!", 404));
+  // }
 
   res.status(200).json({ success: true, product });
 };
@@ -82,11 +90,11 @@ const getProductDetails = async (req, res, next) => {
 const deleteProduct = async (req, res, next) => {
   let product = await Product.findById(req.params.id);
 
-  // if (!product) {
-  //   return res
-  //     .status(500)
-  //     .json({ success: false, message: "Product not found" });
-  // }
+  if (!product) {
+    return res
+      .status(500)
+      .json({ success: false, message: "Product not found" });
+  }
 
   if (!product) {
     return next(new errorHandler("Product not found!!", 404));

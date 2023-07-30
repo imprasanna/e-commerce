@@ -1,15 +1,15 @@
-const errorHandler = require("../utils/errorHandler");
+const ErrorMiddleware = (err, req, res, next) => {
+  // console.log("Here we are");
+  // console.log("Status Code1", err.statusCode);
+  console.log(err);
+  err.statusCode = err.statusCode || 500;
+  err.message = err.message || "Internal Server Error!!";
+  // console.log("Status Code2", err.statusCode);
 
-const Err = (err, req, res, next) => {
-  console.log("Status Code1", err.statusCode);
-  err.statusCode = errorHandler.err.statusCode || 500;
-  err.message = errorHandler.err.message || "Internal Server Error!!";
-  console.log("Status Code2", err.statusCode);
-
-  res.status(err.statusCode).json({
+  return res.status(err.statusCode).json({
     success: false,
     message: err.message,
   });
 };
 
-module.exports = Err;
+module.exports = ErrorMiddleware;
