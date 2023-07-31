@@ -15,6 +15,14 @@ app.use(bodyParser.json());
 // app.use(errorMiddleware);
 // app.use(asyncHandler);
 
+// Handling Uncaught Exception
+process.on("uncaughtException", (err) => {
+  console.log(`Error: ${err.message}`);
+  console.log("Shutting down the server due to unhandled promise rejection!");
+
+  process.exit(1);
+});
+
 dotenv.config({ path: "server/config/config.env" });
 
 dbConnection();
