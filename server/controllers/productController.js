@@ -33,6 +33,7 @@ const createProduct = async (req, res) => {
 const getAllProducts = async (req, res) => {
   try {
     const resultPerPage = 5;
+    const productCount = Product.countDocuments();
 
     const apiFeature = new ApiFeatures(Product.find(), req.query)
       .search()
@@ -117,7 +118,10 @@ const getProductDetails = async (req, res, next) => {
         .json({ success: false, message: "Product not found" });
     }
 
-    res.status(200).json({ success: true, product });
+    res.status(200).json({
+      success: true,
+      product,
+    });
   } catch (error) {
     if (error.name === "CastError") {
       return res.status(400).json({

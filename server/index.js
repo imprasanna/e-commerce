@@ -1,7 +1,8 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
-const { productRoute } = require("./routes/productRoute");
+const productRoutes = require("./routes/productRoute");
+const userRoutes = require("./routes/userRoutes");
 const dbConnection = require("./config/database");
 // const catchAsyncError = require("./middleware/catchAsyncErrors");
 // const asyncHandler = require("express-async-handler");
@@ -27,7 +28,8 @@ dotenv.config({ path: "server/config/config.env" });
 
 dbConnection();
 
-productRoute(app);
+productRoutes(app);
+userRoutes(app);
 
 const server = app.listen(port, () => {
   console.log(`Server is running on http://localhost:${process.env.PORT}`);

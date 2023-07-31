@@ -6,7 +6,7 @@ const {
   getProductDetails,
 } = require("../controllers/productController");
 
-const productRoute = (app) => {
+const productRoutes = (app) => {
   app.get("/api/products", getAllProducts);
   app.post("/api/product/new", createProduct);
   app.put("/api/product/:id", updateProduct);
@@ -14,4 +14,4 @@ const productRoute = (app) => {
   app.delete("/api/product/:id", deleteProduct);
 };
 
-module.exports = { productRoute };
+module.exports = productRoutes;
