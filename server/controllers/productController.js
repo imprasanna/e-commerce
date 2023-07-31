@@ -16,10 +16,17 @@ const createProduct = async (req, res) => {
       product,
     }); // status code 201 -> the request has succeeded and has led to the creation of a resource
   } catch (error) {
-    return res.status(404).json({
-      success: false,
-      message: error.message,
-    });
+    if (error.name === "CastError") {
+      return res.status(400).json({
+        success: false,
+        message: `Resource not found! Invalid ${error.path}: ${error.value}`,
+      });
+    } else {
+      return res.status(404).json({
+        success: false,
+        message: error.message,
+      });
+    }
   }
 };
 
@@ -43,10 +50,17 @@ const getAllProducts = async (req, res) => {
       product,
     });
   } catch (error) {
-    return res.status(404).json({
-      success: false,
-      message: error.message,
-    });
+    if (error.name === "CastError") {
+      return res.status(400).json({
+        success: false,
+        message: `Resource not found! Invalid ${error.path}: ${error.value}`,
+      });
+    } else {
+      return res.status(404).json({
+        success: false,
+        message: error.message,
+      });
+    }
   }
 };
 
