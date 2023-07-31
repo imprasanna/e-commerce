@@ -1,5 +1,6 @@
 const asyncErrorHandler = require("../middleware/asyncErrorHandler");
 const { Product } = require("../models/productModel");
+const ApiFeatures = require("../utils/apiFeatures");
 // const errorHandler = require("../utils/errorHandler");
 // const catchAsyncError = require("../middleware/catchAsyncErrors");
 // const catchAsyncError = require("express-async-handler");
@@ -24,7 +25,11 @@ const createProduct = async (req, res) => {
 
 const getAllProducts = async (req, res) => {
   try {
-    const product = await Product.find();
+    const apiFeature = new ApiFeatures(Product.find(), req.query)
+      .search()
+      .filter();
+    // const product = await Product.find();
+    const product = await apiFeature.query;
 
     if (!product) {
       return res
