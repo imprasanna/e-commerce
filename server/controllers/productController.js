@@ -4,6 +4,8 @@ const { Product } = require("../models/productModel");
 // const catchAsyncError = require("../middleware/catchAsyncErrors");
 // const catchAsyncError = require("express-async-handler");
 
+/* Cast errors for mongoDB handled in getProductDetails, updateProduct and deleteProduct functions */
+
 const createProduct = async (req, res) => {
   try {
     const product = await Product.create(req.body);
@@ -69,10 +71,17 @@ const updateProduct = async (req, res) => {
       product,
     });
   } catch (error) {
-    return res.status(404).json({
-      success: false,
-      message: error.message,
-    });
+    if (error.name === "CastError") {
+      return res.status(400).json({
+        success: false,
+        message: `Resource not found! Invalid ${error.path}: ${error.value}`,
+      });
+    } else {
+      return res.status(404).json({
+        success: false,
+        message: error.message,
+      });
+    }
   }
 };
 
@@ -88,10 +97,17 @@ const getProductDetails = async (req, res, next) => {
 
     res.status(200).json({ success: true, product });
   } catch (error) {
-    return res.status(404).json({
-      success: false,
-      message: error.message,
-    });
+    if (error.name === "CastError") {
+      return res.status(400).json({
+        success: false,
+        message: `Resource not found! Invalid ${error.path}: ${error.value}`,
+      });
+    } else {
+      return res.status(404).json({
+        success: false,
+        message: error.message,
+      });
+    }
   }
 };
 
@@ -116,10 +132,17 @@ const deleteProduct = async (req, res, next) => {
       message: "Product deleted successfully",
     });
   } catch (error) {
-    return res.status(404).json({
-      success: false,
-      message: error.message,
-    });
+    if (error.name === "CastError") {
+      return res.status(400).json({
+        success: false,
+        message: `Resource not found! Invalid ${error.path}: ${error.value}`,
+      });
+    } else {
+      return res.status(404).json({
+        success: false,
+        message: error.message,
+      });
+    }
   }
 };
 
