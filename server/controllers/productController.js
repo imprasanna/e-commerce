@@ -32,9 +32,12 @@ const createProduct = async (req, res) => {
 
 const getAllProducts = async (req, res) => {
   try {
+    const resultPerPage = 5;
+
     const apiFeature = new ApiFeatures(Product.find(), req.query)
       .search()
-      .filter();
+      .filter()
+      .pagination(resultPerPage);
     // const product = await Product.find();
     const product = await apiFeature.query;
 
