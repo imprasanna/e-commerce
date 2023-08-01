@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const productRoutes = require("./routes/productRoute");
 const userRoutes = require("./routes/userRoutes");
 const dbConnection = require("./config/database");
+const cookieParser = require("cookie-parser");
 // const catchAsyncError = require("./middleware/catchAsyncErrors");
 // const asyncHandler = require("express-async-handler");
 // const errorMiddleware = require("./middleware/error");
@@ -13,6 +14,7 @@ const port = process.env.PORT;
 
 app.use(express.json());
 app.use(bodyParser.json());
+app.use(cookieParser);
 // app.use(errorMiddleware);
 // app.use(asyncHandler);
 

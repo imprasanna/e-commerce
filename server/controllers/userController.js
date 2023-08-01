@@ -1,5 +1,7 @@
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
+const genAuthToken = require("../utils/genAuthToken");
+const sendToken = require("../utils/sendJwtToken");
 
 const registerUser = async (req, res, next) => {
   try {
@@ -26,10 +28,7 @@ const registerUser = async (req, res, next) => {
 
     await user.save();
 
-    res.status(201).json({
-      success: true,
-      user,
-    });
+    sendToken(user, 201, res);
   } catch (error) {
     return res.status(500).json({
       success: false,
@@ -38,4 +37,31 @@ const registerUser = async (req, res, next) => {
   }
 };
 
-module.exports = { registerUser };
+const loginUser = async (req, res) => {
+  try {
+    let user = await User.findOne({ email: req.body.email }).select(
+      "+password"
+    );
+
+    // Check if the given email and password is valid or not
+    if (!user) {
+      return res.status(400).json({ message: "Invalid email or password!" });
+    }
+
+    const isValid = await bcrypt.compare(req.body.password, user.password);
+
+    // Check if the password matches the user credentials for login
+    if (!isValid) {
+      return res.status(400).json({ message: "Invalid email or password!" });
+    }
+
+    sendToken(user, 200, res);
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+module.exports = { registerUser, loginUser };
