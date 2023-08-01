@@ -5,9 +5,10 @@ const {
   deleteProduct,
   getProductDetails,
 } = require("../controllers/productController");
+const isUserAuthenticated = require("../middleware/authMiddleware");
 
 const productRoutes = (app) => {
-  app.get("/api/products", getAllProducts);
+  app.get("/api/products", isUserAuthenticated, getAllProducts);
   app.post("/api/product/new", createProduct);
   app.put("/api/product/:id", updateProduct);
   app.get("/api/product/:id", getProductDetails);

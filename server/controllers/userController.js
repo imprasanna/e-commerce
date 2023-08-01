@@ -1,6 +1,5 @@
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
-const genAuthToken = require("../utils/genAuthToken");
 const sendToken = require("../utils/sendJwtToken");
 
 const registerUser = async (req, res, next) => {
@@ -39,9 +38,7 @@ const registerUser = async (req, res, next) => {
 
 const loginUser = async (req, res) => {
   try {
-    let user = await User.findOne({ email: req.body.email }).select(
-      "+password"
-    );
+    let user = await User.findOne({ email: req.body.email });
 
     // Check if the given email and password is valid or not
     if (!user) {
@@ -64,4 +61,19 @@ const loginUser = async (req, res) => {
   }
 };
 
-module.exports = { registerUser, loginUser };
+const logoutUser = async (req, res) => {
+  try {
+    res.clearCookie("token");
+    return res.status(200).json({
+      success: true,
+      message: "Logged out successfully!",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+module.exports = { registerUser, loginUser, logoutUser };

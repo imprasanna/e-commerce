@@ -15,3 +15,5 @@ const isUserAuthenticated = async (req, res) => {
 
   req.user = await User.findById(decodedData._id);
 };
+
+module.exports = isUserAuthenticated;

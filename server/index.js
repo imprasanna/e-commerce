@@ -28,10 +28,10 @@ process.on("uncaughtException", (err) => {
 
 dotenv.config({ path: "server/config/config.env" });
 
-dbConnection();
-
 productRoutes(app);
 userRoutes(app);
+
+dbConnection();
 
 const server = app.listen(port, () => {
   console.log(`Server is running on http://localhost:${process.env.PORT}`);
