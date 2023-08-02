@@ -5,14 +5,32 @@ const {
   deleteProduct,
   getProductDetails,
 } = require("../controllers/productController");
-const isUserAuthenticated = require("../middleware/authMiddleware");
+const {
+  isUserAuthenticated,
+  authorizeRoles,
+} = require("../middleware/authMiddleware");
 
 const productRoutes = (app) => {
-  app.get("/api/products", isUserAuthenticated, getAllProducts);
-  app.post("/api/product/new", createProduct);
-  app.put("/api/product/:id", updateProduct);
+  app.get("/api/products", getAllProducts);
+  app.post(
+    "/api/product/new",
+    isUserAuthenticated,
+    authorizeRoles("Admin"),
+    createProduct
+  );
+  app.put(
+    "/api/product/:id",
+    isUserAuthenticated,
+    authorizeRoles("Admin"),
+    updateProduct
+  );
   app.get("/api/product/:id", getProductDetails);
-  app.delete("/api/product/:id", deleteProduct);
+  app.delete(
+    "/api/product/:id",
+    isUserAuthenticated,
+    authorizeRoles("Admin"),
+    deleteProduct
+  );
 };
 
 module.exports = productRoutes;

@@ -1,6 +1,5 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const bodyParser = require("body-parser");
 const productRoutes = require("./routes/productRoute");
 const userRoutes = require("./routes/userRoutes");
 const dbConnection = require("./config/database");
@@ -13,8 +12,7 @@ const app = express();
 const port = process.env.PORT;
 
 app.use(express.json());
-app.use(bodyParser.json());
-app.use(cookieParser);
+app.use(cookieParser());
 // app.use(errorMiddleware);
 // app.use(asyncHandler);
 
