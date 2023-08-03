@@ -131,7 +131,7 @@ const forgotPassword = async (req, res, next) => {
   } catch (error) {
     return res.status(500).json({
       success: false,
-      message: err.message,
+      message: error.message,
     });
   }
 };
@@ -223,7 +223,32 @@ const changePassword = async (req, res) => {
   } catch (error) {
     return res.status(500).json({
       success: false,
-      message: err.message,
+      message: error.message,
+    });
+  }
+};
+
+const updateProfile = async (req, res) => {
+  try {
+    const newUserData = {
+      name: req.body.name,
+      email: req.body.email,
+    };
+
+    const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
+      new: true,
+      runValidators: true,
+      useFindAndModify: false,
+    });
+
+    res.status(200).json({
+      success: true,
+      message: "Profile updated successfully!",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: error.message,
     });
   }
 };
@@ -236,4 +261,5 @@ module.exports = {
   resetPassword,
   getUserDetails,
   changePassword,
+  updateProfile,
 };
