@@ -180,6 +180,33 @@ const getUserDetails = async (req, res) => {
   });
 };
 
+const changePassword = async (req, res) => {
+  const user = await User.findById(req.user.id);
+
+  const isPasswordMatched = await bcrypt.compare(
+    req.body.oldPassword,
+    user.password
+  );
+
+  if (!isPasswordMatched) {
+    return res.status(401).json({ message: "Invalid email or password!" });
+  }
+
+  if (req.body.newPassword !== req.body.confirmPassword) {
+    return res.status(400).json({
+      success: false,
+      message: "Password does not match",
+    });
+  }
+  const saltRounds = 10;
+  const salt = bcrypt.genSalt(saltRounds);
+  user.password = await bcrypt.hash(req.body.newPassword, +salt);
+
+  await user.save();
+
+  sendToken(user, 200, res);
+};
+
 module.exports = {
   registerUser,
   loginUser,
@@ -187,4 +214,5 @@ module.exports = {
   forgotPassword,
   resetPassword,
   getUserDetails,
+  changePassword,
 };
