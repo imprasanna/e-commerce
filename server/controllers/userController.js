@@ -169,10 +169,22 @@ const resetPassword = async (req, res) => {
   sendToken(user, 200, res);
 };
 
+const getUserDetails = async (req, res) => {
+  const user = await User.findById(req.user.id);
+
+  user.password = undefined;
+
+  res.status(200).json({
+    success: true,
+    user,
+  });
+};
+
 module.exports = {
   registerUser,
   loginUser,
   logoutUser,
   forgotPassword,
   resetPassword,
+  getUserDetails,
 };

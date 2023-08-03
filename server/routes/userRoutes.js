@@ -4,7 +4,9 @@ const {
   logoutUser,
   forgotPassword,
   resetPassword,
+  getUserDetails,
 } = require("../controllers/userController");
+const { isUserAuthenticated } = require("../middleware/authMiddleware");
 
 const userRoutes = (app) => {
   app.post("/api/register", registerUser);
@@ -12,6 +14,7 @@ const userRoutes = (app) => {
   app.get("/api/logout", logoutUser);
   app.post("/api/password/forgot", forgotPassword);
   app.put("/api/password/reset/:token", resetPassword);
+  app.get("/api/profile", isUserAuthenticated, getUserDetails);
 };
 
 module.exports = userRoutes;
