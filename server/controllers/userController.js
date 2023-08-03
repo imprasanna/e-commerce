@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const sendToken = require("../utils/sendJwtToken");
 const genPwResetToken = require("../utils/genPwResetToken");
 const sendEmail = require("../utils/sendEmail");
+const crypto = require("crypto");
 
 const registerUser = async (req, res, next) => {
   try {
@@ -128,4 +129,50 @@ const forgotPassword = async (req, res, next) => {
   }
 };
 
-module.exports = { registerUser, loginUser, logoutUser, forgotPassword };
+const resetPassword = async (req, res) => {
+  const resetPasswordToken = crypto
+    .createHash("sha256")
+    .update(req.params.token)
+    .digest("hex");
+
+  const user = await User.findOne({
+    resetPasswordToken,
+    resetPasswordExpire: { $gt: Date.now() },
+  });
+
+  if (!user) {
+    return res.status(404).json({
+      success: false,
+      message: "Reset password token is invalid or has been expired!",
+    });
+  }
+
+  if (req.body.password !== req.body.confirmPassword) {
+    return res.status(400).json({
+      success: false,
+      message: "Password and confirmation password does not match!",
+    });
+  }
+
+  // Use hashed password and save it in the database later
+  const saltRounds = 10;
+  const salt = bcrypt.genSalt(saltRounds);
+  user.password = await bcrypt.hash(user.password, +salt);
+
+  user.resetPasswordToken = undefined;
+  user.resetPasswordExpire = undefined;
+
+  // console.log(user);
+
+  await user.save();
+
+  sendToken(user, 200, res);
+};
+
+module.exports = {
+  registerUser,
+  loginUser,
+  logoutUser,
+  forgotPassword,
+  resetPassword,
+};
