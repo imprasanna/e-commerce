@@ -54,6 +54,7 @@ const getAllProducts = async (req, res) => {
     res.status(200).json({
       success: true,
       product,
+      productCount,
     });
   } catch (error) {
     if (error.name === "CastError") {

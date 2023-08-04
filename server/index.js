@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const productRoutes = require("./routes/productRoute");
 const userRoutes = require("./routes/userRoutes");
+const orderRoutes = require("./routes/orderRoutes");
 const dbConnection = require("./config/database");
 const cookieParser = require("cookie-parser");
 // const catchAsyncError = require("./middleware/catchAsyncErrors");
@@ -28,6 +29,7 @@ dotenv.config({ path: "server/config/config.env" });
 
 productRoutes(app);
 userRoutes(app);
+orderRoutes(app);
 
 dbConnection();
 
