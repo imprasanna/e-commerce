@@ -253,6 +253,108 @@ const updateProfile = async (req, res) => {
   }
 };
 
+// For admin
+const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find();
+
+    users.forEach((obj) => (obj.password = undefined));
+
+    res.status(200).json({
+      success: true,
+      users,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+const getSingleUser = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: `User with id: ${req.params.id} does not exist!`,
+      });
+    }
+
+    user.password = undefined;
+
+    res.status(200).json({
+      success: true,
+      user,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+const updateUserRole = async (req, res) => {
+  try {
+    const newUserData = {
+      name: req.body.name,
+      email: req.body.email,
+      role: req.body.role,
+    };
+
+    const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
+      new: true,
+      runValidators: true,
+      useFindAndModify: false,
+    });
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: `User with id: ${req.params.id} does not exist`,
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "User's role updated successfully!",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+const deleteUser = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: `User with id: ${req.params.id} does not exist`,
+      });
+    }
+
+    await user.deleteOne();
+
+    res.status(200).json({
+      success: true,
+      message: "User has been removed!",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
 module.exports = {
   registerUser,
   loginUser,
@@ -262,4 +364,8 @@ module.exports = {
   getUserDetails,
   changePassword,
   updateProfile,
+  getAllUsers,
+  getSingleUser,
+  updateUserRole,
+  deleteUser,
 };
