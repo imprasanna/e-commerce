@@ -13,20 +13,20 @@ const {
 const productRoutes = (app) => {
   app.get("/api/products", getAllProducts);
   app.post(
-    "/api/product/new",
+    "/api/admin/product/new",
     isUserAuthenticated,
     authorizeRoles("Admin"),
     createProduct
   );
   app.put(
-    "/api/product/:id",
+    "/api/admin/product/:id",
     isUserAuthenticated,
     authorizeRoles("Admin"),
     updateProduct
   );
   app.get("/api/product/:id", getProductDetails);
   app.delete(
-    "/api/product/:id",
+    "/api/admin/product/:id",
     isUserAuthenticated,
     authorizeRoles("Admin"),
     deleteProduct
