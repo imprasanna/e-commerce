@@ -4,6 +4,9 @@ const {
   updateProduct,
   deleteProduct,
   getProductDetails,
+  createProductReview,
+  getProductReviews,
+  deleteReview,
 } = require("../controllers/productController");
 const {
   isUserAuthenticated,
@@ -31,6 +34,9 @@ const productRoutes = (app) => {
     authorizeRoles("Admin"),
     deleteProduct
   );
+  app.put("/api/review", isUserAuthenticated, createProductReview);
+  app.get("/api/reviews", getProductReviews);
+  app.delete("/api/reviews", isUserAuthenticated, deleteReview);
 };
 
 module.exports = productRoutes;
