@@ -35,7 +35,7 @@ const createProduct = async (req, res) => {
 const getAllProducts = async (req, res) => {
   try {
     const resultPerPage = 5;
-    const productCount = Product.countDocuments();
+    // const productCount = Product.collection.countDocuments();
 
     const apiFeature = new ApiFeatures(Product.find(), req.query)
       .search()
@@ -54,7 +54,7 @@ const getAllProducts = async (req, res) => {
     res.status(200).json({
       success: true,
       product,
-      productCount,
+      // productCount,
     });
   } catch (error) {
     if (error.name === "CastError") {
