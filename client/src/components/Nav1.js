@@ -1,16 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 import LoginIcon from "@mui/icons-material/Login";
+import { Link } from "react-router-dom";
 
 const Nav1 = () => {
   return (
     <Wrapper>
       <div className="nav1">
         <p className="nav1-text">Welcome to our shop!</p>
-        <div className="login">
-          <LoginIcon sx={{ fontSize: "1rem" }} />
-          <div>Sign in</div>
-        </div>
+        <Link to="/signin" style={{ textDecoration: "none" }}>
+          <div className="login">
+            <LoginIcon sx={{ fontSize: "1rem" }} />
+            <div>Sign in</div>
+          </div>
+        </Link>
       </div>
     </Wrapper>
   );
