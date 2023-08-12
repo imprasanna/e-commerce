@@ -1,122 +1,34 @@
 import React from "react";
-import styled from "styled-components";
-import LoginIcon from "@mui/icons-material/Login";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import { FiLogIn } from "react-icons/fi";
+import { BiSolidUserPlus } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 const Nav1 = () => {
   return (
-    <Wrapper>
-      <div className="nav1">
-        <p className="nav1-text">Welcome to our shop!</p>
-        <div className="auth">
+    <div className="nav1-wrapper border-b-[1px] border-[#e3e3e3]">
+      <div className="nav1 w-[80%] h-[37px] flex justify-between items-center ml-auto mr-auto">
+        <p className="nav1-text text-sm text-[#aba3a3] uppercase">
+          Welcome to our shop!
+        </p>
+        <div className="auth flex w-[196px] items-center justify-between">
           <Link to="/login" style={{ textDecoration: "none" }}>
-            <div className="login">
-              <LoginIcon sx={{ fontSize: "1rem" }} />
-              <div>Login</div>
+            <div className="login text-white flex items-center justify-center bg-[#fdb03e] rounded h-[25px] w-[90px] cursor-pointer select-none hover:outline hover:outline-1 hover:outline-[#fdb03e] hover:text-[#fdb03e] hover:bg-white">
+              <FiLogIn />
+              <div className="ml-[0.5rem]">Login</div>
             </div>
           </Link>
 
           <Link to="/register" style={{ textDecoration: "none" }}>
-            <div className="register">
-              <PersonAddIcon sx={{ fontSize: "1rem" }} />
-              <div>Register</div>
+            <div className="register text-white flex items-center justify-center bg-[#fdb03e] rounded h-[25px] w-[90px] cursor-pointer select-none hover:outline hover:outline-1 hover:outline-[#fdb03e] hover:text-[#fdb03e] hover:bg-white">
+              <BiSolidUserPlus className="w-4 h-4" />
+              <div className="ml-[0.5rem]">Register</div>
             </div>
           </Link>
         </div>
       </div>
-    </Wrapper>
+    </div>
   );
 };
-
-const Wrapper = styled.section`
-  border-bottom: 2px solid #e3e3e3;
-
-  .nav1 {
-    width: 80%;
-    height: 37px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    .auth {
-      display: flex;
-      width: 196px;
-      align-items: center;
-      justify-content: space-between;
-    }
-  }
-
-  .nav1-text {
-    color: #aba3a3;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-  }
-
-  .login {
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #fdb03e;
-    height: 25px;
-    width: 90px;
-    border-radius: 5px;
-    cursor: pointer;
-    user-select: none;
-
-    &:hover {
-      background-color: white;
-      outline: 1px solid #fdb03e;
-      height: 25px;
-      width: 90px;
-      border-radius: 5px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      color: #fdb03e;
-      user-select: none;
-    }
-
-    div {
-      font-size: 1rem;
-      margin-left: 0.5rem;
-    }
-
-  }
-  
-  .register {
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #fdb03e;
-    height: 25px;
-    width: 90px;
-    border-radius: 5px;
-    cursor: pointer;
-    user-select: none;
-
-    &:hover {
-      background-color: white;
-      outline: 1px solid #fdb03e;
-      height: 25px;
-      width: 90px;
-      border-radius: 5px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      color: #fdb03e;
-      user-select: none;
-    }
-
-    div {
-      font-size: 1rem;
-      margin-left: 0.5rem;
-    }
-
-    
-`;
 
 export default Nav1;

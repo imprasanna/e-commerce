@@ -1,74 +1,32 @@
 import React from "react";
-import styled from "styled-components";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 const Nav3 = () => {
   return (
-    <Wrapper>
-      <div className="nav3">
-        <div className="categories">
-          <div className="categories-text">All Categories</div>
+    <div className="nav-wrapper bg-[#292560] w-full h-[55px]">
+      <div className="nav3 w-[77%] h-[52px] ml-auto mr-auto flex items-center justify-between text-white">
+        <div className="categories flex items-center justify-between w-[167px] pt-[7px] pb-[7px] pl-[10px] pr-[10px] border-[#e0e0e0] border-[1px] rounded-[2px] cursor-pointer">
+          <div className="categories-text text-sm">All Categories</div>
           <ArrowDropDownIcon sx={{ color: "white" }} />
         </div>
 
-        <div className="nav-menu">
-          <div>Home</div>
-          <div>New Arrivals</div>
-          <div>About Us</div>
-          <div>Contact Us</div>
+        <div className="nav-menu flex">
+          <div className="uppercase text-[1.1rem] cursor-pointer select-none font-semibold hover:text-[#fdb03e]">
+            Home
+          </div>
+          <div className="uppercase text-[1.1rem] ml-[40px] cursor-pointer select-none font-semibold hover:text-[#fdb03e]">
+            New Arrivals
+          </div>
+          <div className="uppercase text-[1.1rem] ml-[40px] cursor-pointer select-none font-semibold hover:text-[#fdb03e]">
+            About Us
+          </div>
+          <div className="uppercase text-[1.1rem] ml-[40px] cursor-pointer select-none font-semibold hover:text-[#fdb03e]">
+            Contact Us
+          </div>
         </div>
       </div>
-    </Wrapper>
+    </div>
   );
 };
-
-const Wrapper = styled.section`
-  background-color: #292560;
-  width: 100%;
-  height: 55px;
-
-  .nav3 {
-    width: 77%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 52px;
-    color: white;
-
-    .categories {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 167px;
-      padding: 7px 10px 7px 10px;
-      border: 1px solid #e0e0e0;
-      border-radius: 2px;
-      cursor: pointer;
-
-      .categories-text {
-        font-size: 0.9rem;
-        user-select: none;
-      }
-    }
-
-    .nav-menu {
-      display: flex;
-
-      div {
-        text-transform: uppercase;
-        font-size: 1.1rem;
-        margin-left: 40px;
-        cursor: pointer;
-        font-weight: 600;
-        user-select: none;
-
-        &:hover {
-          color: #fdb03e;
-        }
-      }
-    }
-  }
-`;
 
 export default Nav3;
