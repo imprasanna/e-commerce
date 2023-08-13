@@ -3,24 +3,24 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 const Nav3 = () => {
   return (
-    <div className="nav-wrapper bg-[#292560] w-full h-[55px]">
-      <div className="nav3 w-[77%] h-[52px] ml-auto mr-auto flex items-center justify-between text-white">
-        <div className="categories flex items-center justify-between w-[167px] pt-[7px] pb-[7px] pl-[10px] pr-[10px] border-[#e0e0e0] border-[1px] rounded-[2px] cursor-pointer">
-          <div className="categories-text text-sm">All Categories</div>
+    <div className="nav-wrapper lg:bg-[#292560] lg:w-full lg:h-[55px] hidden lg:block">
+      <div className="nav3 lg:w-[77%] lg:h-[52px] lg:ml-auto lg:mr-auto lg:flex lg:items-center lg:justify-between lg:text-white">
+        <div className="categories lg:flex lg:items-center lg:justify-between lg:w-[167px] lg:pt-[7px] lg:pb-[7px] lg:pl-[10px] lg:pr-[10px] lg:border-[#e0e0e0] lg:border-[1px] lg:rounded-[2px] lg:cursor-pointer">
+          <div className="categories-text lg:text-sm">All Categories</div>
           <ArrowDropDownIcon sx={{ color: "white" }} />
         </div>
 
         <div className="nav-menu flex">
-          <div className="uppercase text-[1.1rem] cursor-pointer select-none font-semibold hover:text-[#fdb03e]">
+          <div className="lg:uppercase lg:text-[1.1rem] lg:cursor-pointer lg:select-none lg:font-semibold lg:hover:text-[#fdb03e]">
             Home
           </div>
-          <div className="uppercase text-[1.1rem] ml-[40px] cursor-pointer select-none font-semibold hover:text-[#fdb03e]">
-            New Arrivals
+          <div className="lg:uppercase lg:text-[1.1rem] lg:ml-[40px] lg:cursor-pointer lg:select-none lg:font-semibold lg:hover:text-[#fdb03e]">
+            New Arrivalsmd:
           </div>
-          <div className="uppercase text-[1.1rem] ml-[40px] cursor-pointer select-none font-semibold hover:text-[#fdb03e]">
+          <div className="lg:uppercase lg:text-[1.1rem] lg:ml-[40px] lg:cursor-pointer lg:select-none lg:font-semibold lg:hover:text-[#fdb03e]">
             About Us
           </div>
-          <div className="uppercase text-[1.1rem] ml-[40px] cursor-pointer select-none font-semibold hover:text-[#fdb03e]">
+          <div className="lg:uppercase lg:text-[1.1rem] lg:ml-[40px] lg:cursor-pointer lg:select-none lg:font-semibold lg:hover:text-[#fdb03e]">
             Contact Us
           </div>
         </div>

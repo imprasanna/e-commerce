@@ -7,25 +7,25 @@ import { AiFillHeart, AiOutlineSearch } from "react-icons/ai";
 const Nav2 = () => {
   return (
     // <Wrapper>
-    <div className="nav2-wrapper w-[100%]">
-      <div className="nav2 w-[80%] h-[80px] ml-auto mr-auto flex items-center justify-between">
-        <img className="logo h-[50%]" src={logo} alt="logo" />
-        <div className="search-bar flex items-center">
+    <div className="nav2-wrapper lg:w-[100%] hidden lg:block">
+      <div className="nav2 lg:w-[80%] lg:h-[80px] lg:ml-auto lg:mr-auto lg:flex lg:items-center lg:justify-between">
+        <img className="logo lg:h-[50%]" src={logo} alt="logo" />
+        <div className="search-bar lg:flex lg:items-center">
           <input
-            className="search-box w-[500px] h-[50px] border-l-2 border-l-[#e0e0e0] border-t-2 border-t-[#e0e0e0] border-b-2 border-r-0 pl-4 text-[#959595] rounded-tl-md rounded-bl-md font-ysabeau focus:outline-0 placeholder:font-ysabeau placeholder:text-[1.2rem] placeholder:text-[#e3e3e3]"
+            className="search-box lg:w-[500px] lg:h-[50px] lg:border-l-2 lg:border-l-[#e0e0e0] lg:border-t-2 lg:border-t-[#e0e0e0] lg:border-b-2 lg:border-r-0 lg:pl-4 lg:text-[#959595] lg:rounded-tl-lg lg:rounded-bl-lg lg:font-ysabeau lg:focus:outline-0 lg:placeholder:font-ysabeau lg:placeholder:text-[1.2rem] lg:placeholder:text-[#e3e3e3]"
             placeholder="Search for products"
           />
-          <button className="search-btn h-[50px] w-[100px] bg-[#fdb03e] rounded-tr-md rounded-br-md hover:bg-[#dc9833] flex justify-center items-center">
-            <AiOutlineSearch className="text-white text-3xl" />
+          <button className="search-btn lg:h-[50px] lg:w-[100px] lg:bg-[#fdb03e] lg:rounded-tr-lg lg:rounded-br-lg lg:hover:bg-[#dc9833] lg:flex lg:justify-center lg:items-center">
+            <AiOutlineSearch className="lg:text-white lg:text-3xl" />
           </button>
         </div>
-        <div className="fav-and-cart flex justify-between items-center w-[150px]">
+        <div className="fav-and-cart lg:flex lg:justify-between lg:items-center lg:w-[150px]">
           <IconButton>
-            <AiFillHeart className="text-black text-4xl" />
+            <AiFillHeart className="lg:text-black lg:text-4xl" />
           </IconButton>
           <IconButton>
             <Badge color="secondary" badgeContent={0}>
-              <MdShoppingCart className="text-black text-4xl" />
+              <MdShoppingCart className="lg:text-black lg:text-4xl" />
             </Badge>
           </IconButton>
         </div>
