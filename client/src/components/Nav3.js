@@ -15,7 +15,7 @@ const Nav3 = () => {
             Home
           </div>
           <div className="lg:uppercase lg:text-[1.1rem] lg:ml-[40px] lg:cursor-pointer lg:select-none lg:font-semibold lg:hover:text-[#fdb03e]">
-            New Arrivalsmd:
+            New Arrivals
           </div>
           <div className="lg:uppercase lg:text-[1.1rem] lg:ml-[40px] lg:cursor-pointer lg:select-none lg:font-semibold lg:hover:text-[#fdb03e]">
             About Us
