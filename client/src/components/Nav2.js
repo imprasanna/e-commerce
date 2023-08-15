@@ -40,7 +40,7 @@ const Nav2 = () => {
   };
 
   return (
-    <div className="nav2-wrapper shadow-md shadow-gray-200 pt-2 pb-2 lg:w-[100%]">
+    <div className="nav2-wrapper fixed shadow-md shadow-gray-200 pt-2 pb-2 lg:w-[100%]">
       {/* <div className={`menu-initial ${hamburgerMenu ? "menu-open" : ""}`}>
         <p className="p-1">Welcome to our shop!</p>
         <RxCross2
