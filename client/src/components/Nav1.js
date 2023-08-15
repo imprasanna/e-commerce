@@ -7,7 +7,7 @@ const Nav1 = () => {
   return (
     <div className="nav1-wrapper lg:border-b-[1px] lg:border-[#e3e3e3] hidden lg:block">
       <div className="nav1 lg:w-[80%] lg:h-[37px] lg:flex lg:justify-between lg:items-center lg:ml-auto lg:mr-auto">
-        <p className="nav1-text lg:text-sm lg:text-[#aba3a3] lg:uppercase">
+        <p className="nav1-text uppercase lg:text-sm lg:text-[#aba3a3]">
           Welcome to our shop!
         </p>
         <div className="auth lg:flex lg:w-[196px] lg:items-center lg:justify-between">

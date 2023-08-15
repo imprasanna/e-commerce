@@ -5,29 +5,60 @@ import { MdShoppingCart } from "react-icons/md";
 import { AiFillHeart, AiOutlineSearch } from "react-icons/ai";
 import { HiOutlineMenu } from "react-icons/hi";
 import { RxCross2 } from "react-icons/rx";
-import "../styles/nav2.css";
+import { motion } from "framer-motion";
 
 const Nav2 = () => {
-  const [hamburgerMenu, openHamburgerMenu] = useState(false);
+  const variants = {
+    open: {
+      x: "0",
+      transition: {
+        x: { velocity: -100, stiffness: 500 },
+      },
+    },
+    closed: {
+      x: "-100%",
+      transition: {
+        x: {
+          velocity: -10,
+          stiffness: 100,
+        },
+      },
+    },
+  };
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // const [hamburgerMenu, openHamburgerMenu] = useState(false);
   // const [darkOverlay, darkenOverlay] = useState(false);
 
   const handleMenuClick = () => {
-    openHamburgerMenu(true);
+    setIsMenuOpen(true);
   };
 
   const handleCrossClick = () => {
-    openHamburgerMenu(false);
+    setIsMenuOpen(false);
   };
 
   return (
     <div className="nav2-wrapper shadow-md shadow-gray-200 pt-2 pb-2 lg:w-[100%]">
-      <div className={`menu-initial ${hamburgerMenu ? "menu-open" : ""}`}>
+      {/* <div className={`menu-initial ${hamburgerMenu ? "menu-open" : ""}`}>
         <p className="p-1">Welcome to our shop!</p>
         <RxCross2
           onClick={handleCrossClick}
           className="absolute top-3 right-3"
         />
-      </div>
+      </div> */}
+      <motion.nav
+        animate={isMenuOpen ? "open" : "closed"}
+        variants={variants}
+        className="menu h-[100%] w-[80%] absolute z-10 top-0 bg-white lg:hidden"
+      >
+        <p className="uppercase text-sm text-[#aba3a3]">Welcome to our shop!</p>
+        <RxCross2
+          onClick={handleCrossClick}
+          className="absolute top-3 right-3"
+        />
+      </motion.nav>
 
       <div className="nav2 lg:w-[80%] lg:h-[80px] lg:ml-auto lg:mr-auto flex items-center justify-between">
         <IconButton>
