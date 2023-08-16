@@ -1,0 +1,10 @@
+.unhidden-cross-icon {
+    padding: 0.75rem;
+    position: absolute;
+    top: -1rem;
+    right: -15rem;
+}
+
+.hidden-cross-icon {
+    display: none;
+}

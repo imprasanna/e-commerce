@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import logo from "../utils/logo.png";
 import { Badge, IconButton } from "@mui/material";
 import { MdShoppingCart } from "react-icons/md";
@@ -6,8 +6,15 @@ import { AiFillHeart, AiOutlineSearch } from "react-icons/ai";
 import { HiOutlineMenu } from "react-icons/hi";
 import { RxCross2 } from "react-icons/rx";
 import { motion } from "framer-motion";
-import { useDispatch } from "react-redux";
-import { darkenOverlay } from "../store/slices/NavSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  darkenOverlay,
+  setMenuOpen,
+  hideCrossIcon,
+} from "../store/slices/NavSlice";
+import "../styles/nav2.css";
+// import { FiLogIn } from "react-icons/fi";
+// import { BiSolidUserPlus } from "react-icons/bi";
 
 const Nav2 = () => {
   const variants = {
@@ -29,31 +36,39 @@ const Nav2 = () => {
   };
 
   const dispatch = useDispatch();
-
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { open, hide } = useSelector((state) => state.nav);
 
   const handleMenuClick = () => {
-    setIsMenuOpen(true);
+    dispatch(setMenuOpen(true));
     dispatch(darkenOverlay(true));
+    dispatch(hideCrossIcon(false));
   };
 
   const handleCrossClick = () => {
-    setIsMenuOpen(false);
+    dispatch(setMenuOpen(false));
     dispatch(darkenOverlay(false));
+    dispatch(hideCrossIcon(true));
   };
 
   return (
-    <div className="nav2-wrapper shadow-md shadow-[#00000066] pt-2 pb-2 lg:w-[100%]">
+    <div className="nav2-wrapper shadow-md shadow-[#00000033] pt-2 pb-2 lg:w-[100%]">
       <motion.nav
-        animate={isMenuOpen ? "open" : "closed"}
+        animate={open ? "open" : "closed"}
         variants={variants}
-        className="menu h-[100%] w-[80%] absolute z-10 top-0 bg-white lg:hidden"
+        className="menu h-[100vh] w-[75%] absolute z-10 top-0 bg-white xxs:w-[63%] xs:w-[55%] md:w-[31%] lg:hidden"
       >
         <p className="uppercase text-sm text-[#aba3a3]">Welcome to our shop!</p>
-        <RxCross2
+        <IconButton
           onClick={handleCrossClick}
-          className="absolute top-3 right-3"
-        />
+          className={
+            hide === false ? "unhidden-cross-icon" : "hidden-cross-icon"
+          }
+          // className="absolute top-[-1rem] p-3 right-[-15rem]"
+        >
+          <div className="cross-wrapper bg-white p-4 rounded-full">
+            <RxCross2 className="text-black" />
+          </div>
+        </IconButton>
       </motion.nav>
 
       <div className="nav2 lg:w-[80%] lg:h-[80px] lg:ml-auto lg:mr-auto flex items-center justify-between">
