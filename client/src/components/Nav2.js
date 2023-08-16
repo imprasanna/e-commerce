@@ -4,72 +4,26 @@ import { Badge, IconButton } from "@mui/material";
 import { MdShoppingCart } from "react-icons/md";
 import { AiFillHeart, AiOutlineSearch } from "react-icons/ai";
 import { HiOutlineMenu } from "react-icons/hi";
-import { RxCross2 } from "react-icons/rx";
-import { motion } from "framer-motion";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   darkenOverlay,
   setMenuOpen,
   hideCrossIcon,
 } from "../store/slices/NavSlice";
-import "../styles/nav2.css";
-// import { FiLogIn } from "react-icons/fi";
-// import { BiSolidUserPlus } from "react-icons/bi";
+import HamMenu from "./HamMenu";
 
 const Nav2 = () => {
-  const variants = {
-    open: {
-      x: "0",
-      transition: {
-        x: { velocity: -100, stiffness: 500 },
-      },
-    },
-    closed: {
-      x: "-100%",
-      transition: {
-        x: {
-          velocity: -10,
-          stiffness: 100,
-        },
-      },
-    },
-  };
-
-  const dispatch = useDispatch();
-  const { open, hide } = useSelector((state) => state.nav);
-
   const handleMenuClick = () => {
     dispatch(setMenuOpen(true));
     dispatch(darkenOverlay(true));
     dispatch(hideCrossIcon(false));
   };
 
-  const handleCrossClick = () => {
-    dispatch(setMenuOpen(false));
-    dispatch(darkenOverlay(false));
-    dispatch(hideCrossIcon(true));
-  };
+  const dispatch = useDispatch();
 
   return (
     <div className="nav2-wrapper shadow-md shadow-[#00000033] pt-2 pb-2 lg:w-[100%]">
-      <motion.nav
-        animate={open ? "open" : "closed"}
-        variants={variants}
-        className="menu h-[100vh] w-[75%] absolute z-10 top-0 bg-white xxs:w-[63%] xs:w-[55%] md:w-[31%] lg:hidden"
-      >
-        <p className="uppercase text-sm text-[#aba3a3]">Welcome to our shop!</p>
-        <IconButton
-          onClick={handleCrossClick}
-          className={
-            hide === false ? "unhidden-cross-icon" : "hidden-cross-icon"
-          }
-          // className="absolute top-[-1rem] p-3 right-[-15rem]"
-        >
-          <div className="cross-wrapper bg-white p-4 rounded-full">
-            <RxCross2 className="text-black" />
-          </div>
-        </IconButton>
-      </motion.nav>
+      <HamMenu />
 
       <div className="nav2 lg:w-[80%] lg:h-[80px] lg:ml-auto lg:mr-auto flex items-center justify-between">
         <IconButton>
