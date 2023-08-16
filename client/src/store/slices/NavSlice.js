@@ -1,18 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  dark: false,
+  dark: null,
 };
 
-const navSlice = createSlice({
+export const navSlice = createSlice({
   name: "nav",
   initialState,
   reducers: {
-    darkenOverlay: (state) => {
-      state.dark = true;
+    darkenOverlay: (state, action) => {
+      state.dark = action.payload;
     },
   },
 });
 
-export default navSlice.reducer;
 export const { darkenOverlay } = navSlice.actions;
+export default navSlice.reducer;

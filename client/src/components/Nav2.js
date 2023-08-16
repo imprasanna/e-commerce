@@ -6,6 +6,8 @@ import { AiFillHeart, AiOutlineSearch } from "react-icons/ai";
 import { HiOutlineMenu } from "react-icons/hi";
 import { RxCross2 } from "react-icons/rx";
 import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
+import { darkenOverlay } from "../store/slices/NavSlice";
 
 const Nav2 = () => {
   const variants = {
@@ -26,28 +28,22 @@ const Nav2 = () => {
     },
   };
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const dispatch = useDispatch();
 
-  // const [hamburgerMenu, openHamburgerMenu] = useState(false);
-  // const [darkOverlay, darkenOverlay] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMenuClick = () => {
     setIsMenuOpen(true);
+    dispatch(darkenOverlay(true));
   };
 
   const handleCrossClick = () => {
     setIsMenuOpen(false);
+    dispatch(darkenOverlay(false));
   };
 
   return (
-    <div className="nav2-wrapper fixed shadow-md shadow-gray-200 pt-2 pb-2 lg:w-[100%]">
-      {/* <div className={`menu-initial ${hamburgerMenu ? "menu-open" : ""}`}>
-        <p className="p-1">Welcome to our shop!</p>
-        <RxCross2
-          onClick={handleCrossClick}
-          className="absolute top-3 right-3"
-        />
-      </div> */}
+    <div className="nav2-wrapper shadow-md shadow-gray-300 pt-2 pb-2 lg:w-[100%]">
       <motion.nav
         animate={isMenuOpen ? "open" : "closed"}
         variants={variants}

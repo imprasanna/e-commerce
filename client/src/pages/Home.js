@@ -1,25 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Nav1 from "../components/Nav1";
 import Nav2 from "../components/Nav2";
 import Nav3 from "../components/Nav3";
-import { useDispatch, useSelector } from "react-redux";
-import { darkenOverlay } from "../store/slices/navSlice";
+import { useSelector } from "react-redux";
+import "../styles/home.css";
 
 const Home = () => {
-  const dispatch = useDispatch();
+  const dark = useSelector((state) => state.nav);
 
-  const darkOverlay = useSelector((state) => state.nav.value);
-
-  // const [darkOverlay, isDarkOverlay] = useState(false);
-
-  dispatch(darkenOverlay(true));
+  useEffect(() => {
+    console.log("DARK", dark);
+  }, [dark]);
 
   return (
-    <div className={`overlay ml-auto mr-auto ${darkOverlay}`}>
-      <Nav1 />
-      <Nav2 />
-      <Nav3 />
-    </div>
+    <>
+      <div className={dark ? "overlay-dark" : ""}>
+        <Nav1 />
+        <Nav2 />
+        <Nav3 />
+      </div>
+    </>
   );
 };
 
