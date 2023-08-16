@@ -43,7 +43,7 @@ const Nav2 = () => {
   };
 
   return (
-    <div className="nav2-wrapper shadow-md shadow-gray-300 pt-2 pb-2 lg:w-[100%]">
+    <div className="nav2-wrapper shadow-md shadow-[#00000066] pt-2 pb-2 lg:w-[100%]">
       <motion.nav
         animate={isMenuOpen ? "open" : "closed"}
         variants={variants}
