@@ -1,4 +1,6 @@
 .overlay-dark {
     background-color: rgba(0, 0, 0, 0.4);
     transition: background-color 100ms linear;
+    z-index: 100;
+    position: fixed;
 }

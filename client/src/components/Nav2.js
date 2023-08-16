@@ -4,13 +4,14 @@ import { Badge, IconButton } from "@mui/material";
 import { MdShoppingCart } from "react-icons/md";
 import { AiFillHeart, AiOutlineSearch } from "react-icons/ai";
 import { HiOutlineMenu } from "react-icons/hi";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   darkenOverlay,
   setMenuOpen,
   hideCrossIcon,
 } from "../store/slices/NavSlice";
 import HamMenu from "./HamMenu";
+import "../styles/nav2.css";
 
 const Nav2 = () => {
   const handleMenuClick = () => {
@@ -20,12 +21,21 @@ const Nav2 = () => {
   };
 
   const dispatch = useDispatch();
+  const { dark } = useSelector((state) => state.nav);
 
   return (
     <div className="nav2-wrapper shadow-md shadow-[#00000033] pt-2 pb-2 lg:w-[100%]">
       <HamMenu />
 
-      <div className="nav2 lg:w-[80%] lg:h-[80px] lg:ml-auto lg:mr-auto flex items-center justify-between">
+      <div
+        className={
+          dark === true
+            ? "nav2-unclickable"
+            : dark === false
+            ? "nav2-clickable"
+            : "nav2"
+        }
+      >
         <IconButton>
           <HiOutlineMenu onClick={handleMenuClick} className="lg:hidden" />
         </IconButton>
