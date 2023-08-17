@@ -13,6 +13,7 @@ module.exports = {
         md1: "540px",
         md2: "820px",
         md3: "912px",
+        xl: "1440px",
       },
     },
   },

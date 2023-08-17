@@ -53,7 +53,7 @@ const HamMenu = () => {
           }
           // className="absolute top-[-1rem] p-3 right-[-15rem]"
         >
-          <div className="cross-wrapper bg-white p-4 rounded-full">
+          <div className="cross-wrapper bg-white p-4 rounded-full lg:hidden">
             <RxCross2 className="text-black" />
           </div>
         </IconButton>
