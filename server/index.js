@@ -5,6 +5,7 @@ const userRoutes = require("./routes/userRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 const dbConnection = require("./config/database");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 // const catchAsyncError = require("./middleware/catchAsyncErrors");
 // const asyncHandler = require("express-async-handler");
 // const errorMiddleware = require("./middleware/error");
@@ -14,6 +15,7 @@ const port = process.env.PORT;
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors());
 // app.use(errorMiddleware);
 // app.use(asyncHandler);
 
