@@ -45,3 +45,10 @@
         height: 500px;
     }
 }
+
+@media (min-width: 1250px) {
+    .banner {
+        background-image: url('../utils/banner5.png');
+        height: 400px;
+    }
+}
