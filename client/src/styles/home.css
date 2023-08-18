@@ -1,5 +1,5 @@
 .overlay-dark {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: #00000066;
     transition: background-color 100ms linear;
     z-index: 100;
     position: fixed;
@@ -11,7 +11,19 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    z-index: -100;
 }
+
+.dark-image {
+    background-image: linear-gradient(#00000066, #00000066), url('../utils/banner1.png');
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -100;
+}
+
+/* Media queries for  */
 
 @media (min-width: 375px) {
     .banner {
@@ -49,6 +61,47 @@
 @media (min-width: 1250px) {
     .banner {
         background-image: url('../utils/banner5.png');
+        height: 400px;
+    }
+}
+
+/* Media queries for dark image */
+@media (min-width: 375px) {
+    .dark-image {
+        height: 500px;
+    }
+}
+
+@media (min-width: 425px) {
+    .dark-image {
+        height: 600px;
+    }
+}
+
+@media (min-width: 768px) {
+    .dark-image {
+        background-image: linear-gradient(#00000066, #00000066), url('../utils/banner2.png');
+        height: 400px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .dark-image {
+        background-image: linear-gradient(#00000066, #00000066), url('../utils/banner3.png');
+        height: 400px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .dark-image {
+        background-image: linear-gradient(#00000066, #00000066), url('../utils/banner4.png');
+        height: 500px;
+    }
+}
+
+@media (min-width: 1250px) {
+    .dark-image {
+        background-image: linear-gradient(#00000066, #00000066), url('../utils/banner5.png');
         height: 400px;
     }
 }

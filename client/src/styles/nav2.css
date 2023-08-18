@@ -9,6 +9,9 @@
     pointer-events: none;
 }
 
+.nav2-wrapper {
+    z-index: 1000;
+}
 
 @media (min-width: 1024px) {
     .nav2 {

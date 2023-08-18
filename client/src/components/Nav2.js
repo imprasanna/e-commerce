@@ -26,7 +26,7 @@ const Nav2 = () => {
 
   return (
     <Wrapper>
-      <div className="nav2-wrapper lg:ml-auto lg:mr-auto lg:w-[100%] z-10">
+      <div className="nav2-wrapper shadow-md shadow-[#0000004d] lg:ml-auto lg:mr-auto lg:w-[100%] z-10">
         <HamMenu />
 
         <div
