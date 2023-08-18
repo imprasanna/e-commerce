@@ -4,3 +4,44 @@
     z-index: 100;
     position: fixed;
 }
+
+.banner {
+    background-image: url('../utils/banner1.png');
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media (min-width: 375px) {
+    .banner {
+        height: 500px;
+    }
+}
+
+@media (min-width: 425px) {
+    .banner {
+        height: 600px;
+    }
+}
+
+@media (min-width: 768px) {
+    .banner {
+        background-image: url('../utils/banner2.png');
+        height: 400px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .banner {
+        background-image: url('../utils/banner3.png');
+        height: 400px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .banner {
+        background-image: url('../utils/banner4.png');
+        height: 500px;
+    }
+}
