@@ -5,6 +5,7 @@ import { AiFillHome } from "react-icons/ai";
 import { BiSolidUser } from "react-icons/bi";
 import { Badge } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import "../styles/mobilenav.css";
 import {
   setAccountActive,
@@ -15,6 +16,7 @@ import {
 
 const MobileNav = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { dark } = useSelector((state) => state.nav);
   const { home, search, cart, account } = useSelector((state) => state.mobNav);
 
@@ -23,6 +25,7 @@ const MobileNav = () => {
     dispatch(setSearchActive(false));
     dispatch(setCartActive(false));
     dispatch(setAccountActive(false));
+    navigate("/");
   };
 
   const handleSearchClick = () => {
@@ -37,6 +40,7 @@ const MobileNav = () => {
     dispatch(setSearchActive(false));
     dispatch(setCartActive(true));
     dispatch(setAccountActive(false));
+    navigate("/carts");
   };
 
   const handleAccountClick = () => {
@@ -44,6 +48,7 @@ const MobileNav = () => {
     dispatch(setSearchActive(false));
     dispatch(setCartActive(false));
     dispatch(setAccountActive(true));
+    navigate("/profile");
   };
 
   return (
