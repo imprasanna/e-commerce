@@ -4,11 +4,47 @@ import { RiSearchLine } from "react-icons/ri";
 import { AiFillHome } from "react-icons/ai";
 import { BiSolidUser } from "react-icons/bi";
 import { Badge } from "@mui/material";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "../styles/mobilenav.css";
+import {
+  setAccountActive,
+  setCartActive,
+  setHomeActive,
+  setSearchActive,
+} from "../store/slices/MobNavSlice";
 
 const MobileNav = () => {
+  const dispatch = useDispatch();
   const { dark } = useSelector((state) => state.nav);
+  const { home, search, cart, account } = useSelector((state) => state.mobNav);
+
+  const handleHomeClick = () => {
+    dispatch(setHomeActive(true));
+    dispatch(setSearchActive(false));
+    dispatch(setCartActive(false));
+    dispatch(setAccountActive(false));
+  };
+
+  const handleSearchClick = () => {
+    dispatch(setHomeActive(false));
+    dispatch(setSearchActive(true));
+    dispatch(setCartActive(false));
+    dispatch(setAccountActive(false));
+  };
+
+  const handleCartClick = () => {
+    dispatch(setHomeActive(false));
+    dispatch(setSearchActive(false));
+    dispatch(setCartActive(true));
+    dispatch(setAccountActive(false));
+  };
+
+  const handleAccountClick = () => {
+    dispatch(setHomeActive(false));
+    dispatch(setSearchActive(false));
+    dispatch(setCartActive(false));
+    dispatch(setAccountActive(true));
+  };
 
   return (
     <>
@@ -17,25 +53,45 @@ const MobileNav = () => {
           dark === true ? "mobile-nav-wrapper-dark" : "mobile-nav-wrapper"
         }
       >
-        <div className="w-[25%] p-2 flex flex-col justify-center items-center">
-          <AiFillHome className="text-2xl text-black" />
+        <div
+          onClick={handleHomeClick}
+          className={
+            home === true ? "active-nav-element" : "inactive-nav-element"
+          }
+        >
+          <AiFillHome className="text-2xl" />
           <div className="text-lg">Home</div>
         </div>
 
-        <div className="w-[25%] p-2 flex flex-col justify-center items-center">
-          <RiSearchLine className="text-2xl text-black" />
+        <div
+          onClick={handleSearchClick}
+          className={
+            search === true ? "active-nav-element" : "inactive-nav-element"
+          }
+        >
+          <RiSearchLine className="text-2xl" />
           <div className="text-lg">Search</div>
         </div>
 
-        <div className="w-[25%] p-2 flex flex-col justify-center items-center">
+        <div
+          onClick={handleCartClick}
+          className={
+            cart === true ? "active-nav-element" : "inactive-nav-element"
+          }
+        >
           <Badge badgeContent={0}>
-            <MdShoppingCart className="text-2xl text-black" />
+            <MdShoppingCart className="text-2xl" />
           </Badge>
           <div className="text-lg">Cart</div>
         </div>
 
-        <div className="w-[25%] p-2 flex flex-col flex-wrap justify-center items-center">
-          <BiSolidUser className="text-2xl text-black" />
+        <div
+          onClick={handleAccountClick}
+          className={`account ${
+            account === true ? "active-nav-element" : "inactive-nav-element"
+          }`}
+        >
+          <BiSolidUser className="text-2xl" />
           <div className="text-lg mt-1 text-center leading-3 md:mt-2">
             My account
           </div>

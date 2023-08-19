@@ -17,6 +17,30 @@
     justify-content: space-between;
 }
 
+.inactive-nav-element {
+    display: flex;
+    width: 25%;
+    padding: 0.5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.active-nav-element {
+    display: flex;
+    width: 25%;
+    padding: 0.5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fdb03e;
+    color: white;
+}
+
+.account {
+    flex-wrap: wrap;
+}
+
 @media (min-width: 1024px) {
     .mobile-nav-wrapper {
         display: none;
