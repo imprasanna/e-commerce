@@ -57,16 +57,13 @@ const Nav2 = () => {
               <AiOutlineSearch className="font-bold lg:text-white lg:text-2xl xl:text-3xl" />
             </button>
           </div>
-          <div className="fav-and-cart pr-[0.3rem] lg:flex lg:justify-between lg:items-center lg:w-[150px] xl:w-[150px]">
+          <div className="fav-and-cart pr-[0.3rem] lg:flex lg:justify-between lg:items-center lg:w-[120px] xl:w-[150px]">
             <IconButton>
-              <AiOutlineSearch className="text-xl text-black lg:hidden" />
-            </IconButton>
-            <IconButton>
-              <AiFillHeart className="text-xl text-black lg:text-3xl" />
+              <AiFillHeart className="hidden lg:block lg:text-black lg:text-3xl" />
             </IconButton>
             <IconButton>
               <Badge color="secondary" badgeContent={0}>
-                <MdShoppingCart className="text-xl text-black lg:text-3xl" />
+                <MdShoppingCart className="hidden lg:block lg:text-black lg:text-3xl" />
               </Badge>
             </IconButton>
           </div>
