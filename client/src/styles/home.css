@@ -1,6 +1,5 @@
 .overlay-dark {
     background-color: #00000066;
-    transition: background-color 100ms linear;
     z-index: 100;
     position: fixed;
 }

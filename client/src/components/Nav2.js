@@ -5,7 +5,14 @@ import { MdShoppingCart } from "react-icons/md";
 import { AiFillHeart, AiOutlineSearch } from "react-icons/ai";
 import { HiOutlineMenu } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import {
+  setHomeActive,
+  setSearchActive,
+  setCartActive,
+  setAccountActive,
+} from "../store/slices/MobNavSlice";
 import {
   darkenOverlay,
   setMenuOpen,
@@ -16,12 +23,21 @@ import "../styles/nav2.css";
 
 const Nav2 = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { dark } = useSelector((state) => state.nav);
 
   const handleMenuClick = () => {
     dispatch(setMenuOpen(true));
     dispatch(darkenOverlay(true));
     dispatch(hideCrossIcon(false));
+  };
+
+  const handleLogoClick = () => {
+    dispatch(setHomeActive(true));
+    dispatch(setSearchActive(false));
+    dispatch(setCartActive(false));
+    dispatch(setAccountActive(false));
+    navigate("/");
   };
 
   return (
@@ -42,8 +58,8 @@ const Nav2 = () => {
             onClick={handleMenuClick}
             className="lg:hidden ml-2 text-2xl text-black"
           />
-
           <img
+            onClick={handleLogoClick}
             className="logo w-[35%] md:w-[19%] lg:w-[20%] 2xl:w-[15%]"
             src={logo}
             alt="logo"
