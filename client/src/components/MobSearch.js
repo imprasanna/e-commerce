@@ -31,9 +31,9 @@ const MobSearch = () => {
         <motion.div
           animate={open ? "open" : "closed"}
           variants={variants}
-          className="mobile-search h-[100vh] w-[100vw] bg-[#000000b3] fixed top-0 bottom-0 right-0 left-0 z-1000 text-white"
+          className="mobile-search bg-[#000000b3] fixed top-0 bottom-0 right-0 left-0 z-1000 text-white"
         >
-          <div className="w-full mt-[23rem]">Search</div>
+          <div className="w-full mt-[6rem]">Search</div>
         </motion.div>
       </div>
     </div>
