@@ -2,7 +2,6 @@ import React from "react";
 import Nav1 from "../components/Nav1";
 import Nav2 from "../components/Nav2";
 import Nav3 from "../components/Nav3";
-import MobileNav from "../components/MobileNav";
 import { useDispatch, useSelector } from "react-redux";
 import "../styles/home.css";
 import {
@@ -48,7 +47,6 @@ const Home = () => {
             PageMaker including versions of Lorem Ipsum.
           </div>
         </div>
-        <MobileNav />
       </div>
     </>
   );

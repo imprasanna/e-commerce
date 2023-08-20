@@ -13,6 +13,8 @@ import {
   setHomeActive,
   setSearchActive,
 } from "../store/slices/MobNavSlice";
+import { setSearchOpen } from "../store/slices/MobSearchSlice";
+import MobSearch from "./MobSearch";
 
 const MobileNav = () => {
   const dispatch = useDispatch();
@@ -33,6 +35,7 @@ const MobileNav = () => {
     dispatch(setSearchActive(true));
     dispatch(setCartActive(false));
     dispatch(setAccountActive(false));
+    dispatch(setSearchOpen(true));
   };
 
   const handleCartClick = () => {
@@ -58,6 +61,7 @@ const MobileNav = () => {
           dark === true ? "mobile-nav-wrapper-dark" : "mobile-nav-wrapper"
         }
       >
+        <MobSearch />
         <div
           onClick={handleHomeClick}
           className={

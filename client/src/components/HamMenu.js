@@ -17,6 +17,7 @@ const HamMenu = () => {
       transition: {
         x: { velocity: -100, stiffness: 500 },
       },
+      opacity: 1,
     },
     closed: {
       x: "-100%",
@@ -26,6 +27,7 @@ const HamMenu = () => {
           stiffness: 100,
         },
       },
+      opacity: 0,
     },
   };
 
@@ -43,7 +45,7 @@ const HamMenu = () => {
       <motion.nav
         animate={open ? "open" : "closed"}
         variants={variants}
-        className="menu h-[100vh] w-[75%] fixed z-10 top-0 bg-white xxs:w-[63%] xs:w-[55%] md1:w-[43%] md:w-[31%] md2:w-[29%] md3:w-[26%] lg:hidden"
+        className="menu h-[100vh] w-[75%] fixed z-20 top-0 bg-white xxs:w-[63%] xs:w-[55%] md1:w-[43%] md:w-[31%] md2:w-[29%] md3:w-[26%] lg:hidden"
       >
         <p className="uppercase text-sm text-[#aba3a3]">Welcome to our shop!</p>
         <IconButton

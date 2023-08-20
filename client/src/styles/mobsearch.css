@@ -1,0 +1,14 @@
+/* .mobile-search {
+    height: 105vh;
+    width: 100vw;
+    background-image: linear-gradient(#000000b3, #000000b3);
+    background-position: center;
+    background-size: contain;
+    color: white;
+    position: fixed;
+    z-index: 1000;
+} */
+
+.w-full {
+    text-align: center;
+}
