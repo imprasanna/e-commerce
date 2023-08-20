@@ -8,14 +8,14 @@ const MobSearch = () => {
 
   const variants = {
     open: {
-      y: 0,
+      y: "0%",
       transition: {
         y: { velocity: -1000, stiffness: 500 },
       },
       opacity: 1,
     },
     closed: {
-      y: -100,
+      y: "-100%",
       transition: {
         y: {
           velocity: -100,

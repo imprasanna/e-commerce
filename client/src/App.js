@@ -4,12 +4,11 @@ import Register from "./pages/Register.js";
 import Carts from "./pages/Carts.js";
 import Profile from "./pages/Profile.js";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MobileNav from "./components/MobileNav";
+import MobileBottomNav from "./components/MobileBottomNav";
 
 function App() {
   return (
     <BrowserRouter>
-      <MobileNav />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -17,6 +16,7 @@ function App() {
         <Route path="/carts" element={<Carts />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
+      <MobileBottomNav />
     </BrowserRouter>
   );
 }
