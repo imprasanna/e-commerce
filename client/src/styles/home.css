@@ -10,6 +10,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     z-index: -999;
+    position: relative;
 }
 
 .dark-banner {
@@ -19,9 +20,10 @@
     background-repeat: no-repeat;
     background-size: cover;
     z-index: -999;
+    position: relative;
 }
 
-/* Media queries for  */
+/* Media queries */
 
 @media (min-width: 375px) {
     .banner {
