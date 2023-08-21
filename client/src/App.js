@@ -5,10 +5,12 @@ import Carts from "./pages/Carts.js";
 import Profile from "./pages/Profile.js";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MobileBottomNav from "./components/MobileBottomNav";
+import MobileTopNav from "./components/MobileTopNav";
 
 function App() {
   return (
     <BrowserRouter>
+      <MobileTopNav />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />

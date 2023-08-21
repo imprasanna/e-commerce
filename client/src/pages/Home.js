@@ -32,9 +32,7 @@ const Home = () => {
         <Nav2 />
         <Nav3 />
         <div className="body-wrapper">
-          <div className={dark === true ? "dark-image" : ""}>
-            <div className="banner w-[100%] relative top-0 ml-auto mr-auto" />
-          </div>
+          <div className={dark === true ? "dark-banner" : "banner"}></div>
           <div>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text

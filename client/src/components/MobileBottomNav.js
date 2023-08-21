@@ -6,7 +6,7 @@ import { BiSolidUser } from "react-icons/bi";
 import { Badge } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import "../styles/mobilenav.css";
+import "../styles/mobilebottomnav.css";
 import {
   setAccountActive,
   setCartActive,
