@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineSearch } from "react-icons/ai";
 import "../styles/mobsearch.css";
 import { setSearchOpen } from "../store/slices/MobSearchSlice";
+import { setSearchActive } from "../store/slices/MobNavSlice";
 
 const MobSearch = () => {
   const wrapperRef = useRef(null);
@@ -15,6 +16,7 @@ const MobSearch = () => {
     const handleOutsideClick = (ev) => {
       if (wrapperRef.current && !wrapperRef.current.contains(ev.target)) {
         dispatch(setSearchOpen(false));
+        dispatch(setSearchActive(false));
       }
     };
 

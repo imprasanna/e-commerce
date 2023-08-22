@@ -31,10 +31,7 @@ const MobileNav = () => {
   };
 
   const handleSearchClick = () => {
-    dispatch(setHomeActive(false));
     dispatch(setSearchActive(true));
-    dispatch(setCartActive(false));
-    dispatch(setAccountActive(false));
     dispatch(setSearchOpen(true));
   };
 
