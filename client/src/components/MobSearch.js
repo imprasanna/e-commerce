@@ -1,11 +1,29 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineSearch } from "react-icons/ai";
 import "../styles/mobsearch.css";
+import { setSearchOpen } from "../store/slices/MobSearchSlice";
 
 const MobSearch = () => {
+  const wrapperRef = useRef(null);
+
+  const dispatch = useDispatch();
   const { open } = useSelector((state) => state.mobSearch);
+
+  useEffect(() => {
+    const handleOutsideClick = (ev) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(ev.target)) {
+        dispatch(setSearchOpen(false));
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [open, dispatch]);
 
   const variants = {
     open: {
@@ -26,23 +44,29 @@ const MobSearch = () => {
       opacity: 0,
     },
   };
+
   return (
     <div>
-      <div className="w-full h-full">
+      <div>
         <motion.div
           animate={open ? "open" : "closed"}
           variants={variants}
-          className="mobile-search bg-[#000000b3] fixed top-0 bottom-0 right-0 left-0 z-50 text-white"
+          className={open === true ? "mobile-search" : ""}
         >
-          <div className="search-box-wrapper w-full mt-[6rem] flex justify-center">
-            <div className="search-box w-[250px] xxs:w-[300px] xs:w-[350px] sm: md1:w-[450px] md:w-[550px] md2:w-[600px] bg-white flex items-center rounded-3xl pl-2">
-              <AiOutlineSearch className="text-black h-[2rem]" />
-              <input
-                className="block w-[200px] xxs:w-[250px] xs:w-[300px] md1:w-[400px] md:w-[500px] md2:w-[550px] h-[40px] border-0 pl-4 text-[#959595] font-ysabeau focus:outline-0 placeholder:font-ysabeau placeholder:text-[0.9rem] placeholder:text-[#e3e3e3]"
-                placeholder="Search for products"
-              />
+          {open === true && (
+            <div
+              ref={wrapperRef}
+              className="search-box-wrapper w-full mt-[6rem] flex justify-center"
+            >
+              <div className="search-box w-[250px] xxs:w-[300px] xs:w-[350px] sm: md1:w-[450px] md:w-[550px] md2:w-[600px] bg-white flex items-center rounded-3xl pl-2">
+                <AiOutlineSearch className="text-black h-[2rem]" />
+                <input
+                  className="block w-[200px] xxs:w-[250px] xs:w-[300px] md1:w-[400px] md:w-[500px] md2:w-[550px] h-[40px] border-0 pl-4 text-[#959595] font-ysabeau focus:outline-0 placeholder:font-ysabeau placeholder:text-[0.9rem] placeholder:text-[#e3e3e3]"
+                  placeholder="Search for products"
+                />
+              </div>
             </div>
-          </div>
+          )}
         </motion.div>
       </div>
     </div>
