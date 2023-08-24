@@ -1,4 +1,4 @@
-.mobile-top-nav-unclickable, .mobile-top-nav-clickable {
+/* .mobile-top-nav-unclickable, .mobile-top-nav-clickable {
     height: 50px;
     display: flex;
     align-items: center;
@@ -9,7 +9,7 @@
     pointer-events: none;
     background-image: linear-gradient(#00000066, #00000066);
 
-}
+} */
 
 .mobile-top-nav-wrapper {
     box-shadow: 0 3px 10px 2px rgba(0, 0, 0, 0.2);

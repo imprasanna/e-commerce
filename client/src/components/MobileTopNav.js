@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../utils/logo.png";
 import { HiOutlineMenu } from "react-icons/hi";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
   setHomeActive,
@@ -9,22 +9,16 @@ import {
   setCartActive,
   setAccountActive,
 } from "../store/slices/MobNavSlice";
-import {
-  darkenOverlay,
-  setMenuOpen,
-  hideCrossIcon,
-} from "../store/slices/NavSlice";
+import { setMenuOpen, hideCrossIcon } from "../store/slices/NavSlice";
 import HamMenu from "./HamMenu";
 import "../styles/mobiletopnav.css";
 
 const MobileTopNav = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { dark } = useSelector((state) => state.nav);
 
   const handleMenuClick = () => {
     dispatch(setMenuOpen(true));
-    dispatch(darkenOverlay(true));
     dispatch(hideCrossIcon(false));
   };
 
@@ -42,13 +36,7 @@ const MobileTopNav = () => {
         <div className="mobile-top-nav-wrapper">
           <HamMenu />
 
-          <div
-            className={
-              dark === true
-                ? "mobile-top-nav-unclickable"
-                : "mobile-top-nav-clickable"
-            }
-          >
+          <div className="h-[50px] flex items-center justify-between">
             <HiOutlineMenu
               onClick={handleMenuClick}
               className="lg:hidden ml-2 text-2xl text-black"

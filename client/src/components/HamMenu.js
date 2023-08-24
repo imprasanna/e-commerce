@@ -3,11 +3,7 @@ import { IconButton } from "@mui/material";
 import { RxCross2 } from "react-icons/rx";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  darkenOverlay,
-  setMenuOpen,
-  hideCrossIcon,
-} from "../store/slices/NavSlice";
+import { setMenuOpen, hideCrossIcon } from "../store/slices/NavSlice";
 import "../styles/ham.css";
 
 const HamMenu = () => {
@@ -36,16 +32,25 @@ const HamMenu = () => {
 
   const handleCrossClick = () => {
     dispatch(setMenuOpen(false));
-    dispatch(darkenOverlay(false));
+    dispatch(hideCrossIcon(true));
+  };
+
+  const handleDarkOverlayClick = () => {
+    dispatch(setMenuOpen(false));
     dispatch(hideCrossIcon(true));
   };
 
   return (
     <div>
+      <div
+        onClick={handleDarkOverlayClick}
+        className={open ? "dark-overlay" : ""}
+      ></div>
+
       <motion.nav
         animate={open ? "open" : "closed"}
         variants={variants}
-        className="menu h-[100vh] w-[75%] fixed z-50 top-0 bg-white xxs:w-[63%] xs:w-[55%] md1:w-[43%] md:w-[31%] md2:w-[29%] md3:w-[26%]"
+        className="ham-menu h-[100vh] w-[75%] fixed z-50 top-0 bg-white xxs:w-[63%] xs:w-[55%] md1:w-[43%] md:w-[31%] md2:w-[29%] md3:w-[26%]"
       >
         <p className="uppercase text-sm text-[#aba3a3]">Welcome to our shop!</p>
         <IconButton
