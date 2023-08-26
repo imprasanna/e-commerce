@@ -194,16 +194,16 @@ const HomeBody = () => {
         <div className="body">
           <p
             style={{ textAlign: "center" }}
-            className="text-2xl mt-8 mb-3 md:text-3xl lg:text-4xl lg:mt-16 lg:mb-8"
+            className="text-2xl mt-12 mb-3 md:text-3xl lg:text-4xl lg:mt-16 lg:mb-8"
           >
             Our <strong>New Products</strong>
           </p>
 
-          <p>
-            <Grid container>
-              {products.slice(0, 8).map((product) => {
+          <p className="lg:w-[80%] ml-auto mr-auto">
+            <Grid container className="lg:w-[80%] ml-auto mr-auto">
+              {products.slice(0, 9).map((product) => {
                 return (
-                  <Grid xs={12} key={product.id}>
+                  <Grid xs={12} sm={6} md={4} key={product.id}>
                     <div key={product.id}>
                       <ProductCardDetails
                         id={product.id}
