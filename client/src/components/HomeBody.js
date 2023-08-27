@@ -1,6 +1,8 @@
 import React from "react";
 import "../styles/homebody.css";
-import { Grid } from "@mui/material";
+import { Link } from "react-router-dom";
+import { Button, Grid } from "@mui/material";
+import { AiOutlineArrowRight } from "react-icons/ai";
 import ProductCardDetails from "./ProductCardDetails";
 
 const HomeBody = () => {
@@ -201,9 +203,16 @@ const HomeBody = () => {
 
           <p className="lg:w-[80%] ml-auto mr-auto">
             <Grid container className="lg:w-[80%] ml-auto mr-auto">
-              {products.slice(0, 9).map((product) => {
+              {products.slice(0, 12).map((product) => {
                 return (
-                  <Grid xs={12} sm={6} md={4} key={product.id}>
+                  <Grid
+                    xs={12}
+                    sm={6}
+                    md={4}
+                    lg={3}
+                    rowSpacing={2}
+                    key={product.id}
+                  >
                     <div key={product.id}>
                       <ProductCardDetails
                         id={product.id}
@@ -216,6 +225,17 @@ const HomeBody = () => {
                 );
               })}
             </Grid>
+            <p className="w-full mb-28" style={{ textAlign: "center" }}>
+              <Link to="/products">
+                <Button
+                  variant="contained"
+                  style={{ backgroundColor: "#fdb03e" }}
+                >
+                  <span className="mr-[5px]">View All Products</span>
+                  <AiOutlineArrowRight />
+                </Button>
+              </Link>
+            </p>
           </p>
         </div>
       </div>
