@@ -19,6 +19,15 @@ const HomeBody = () => {
             Our <strong>New Products</strong>
           </p>
 
+          <p className="w-full" style={{ textAlign: "right" }}>
+            <Link to="/products">
+              <Button style={{ color: "#fdb03e" }}>
+                <span className="mr-[5px]">View All Products</span>
+                <AiOutlineArrowRight />
+              </Button>
+            </Link>
+          </p>
+
           <p className="lg:w-[80%] ml-auto mr-auto">
             <Grid container className="lg:w-[80%] ml-auto mr-auto">
               {products.slice(0, 12).map((product) => {
@@ -43,6 +52,7 @@ const HomeBody = () => {
                 );
               })}
             </Grid>
+
             <p className="w-full mb-28" style={{ textAlign: "center" }}>
               <Link to="/products">
                 <Button
