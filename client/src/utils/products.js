@@ -19,7 +19,7 @@ const products = [
   },
   {
     id: 4,
-    name: "Pro4 Wireless Bluetooth Earphone Android Headphone TWS Headset Earpods Set",
+    name: "Pro4 Wireless Bluetooth Earphone Android Earpods Set",
     img: "https://static-01.daraz.com.np/p/ee47b11a4ada6ac67828292d9338d5fb.jpg_200x200q90-product.jpg_.webp",
     price: "679",
   },

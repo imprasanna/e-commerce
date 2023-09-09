@@ -29,12 +29,12 @@ const HomeBody = () => {
           </p>
 
           <p className="lg:w-[80%] ml-auto mr-auto">
-            <Grid container className="lg:w-[80%] ml-auto mr-auto">
+            <Grid container className="lg:w-[80%] ml-auto mr-auto gap-y-8 mb-8">
               {products.slice(0, 12).map((product) => {
                 return (
                   <Grid
-                    xs={12}
-                    sm={6}
+                    xs={6}
+                    sm={4}
                     md={4}
                     lg={3}
                     rowSpacing={2}

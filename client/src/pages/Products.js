@@ -35,17 +35,10 @@ const Products = () => {
       </div>
 
       <p className="lg:w-[80%] ml-auto mr-auto">
-        <Grid container className="lg:w-[80%] ml-auto mr-auto">
+        <Grid container className="lg:w-[80%] ml-auto mr-auto gap-y-8">
           {products.map((product) => {
             return (
-              <Grid
-                xs={12}
-                sm={6}
-                md={4}
-                lg={3}
-                rowSpacing={2}
-                key={product.id}
-              >
+              <Grid xs={6} sm={4} md={4} lg={3} rowSpacing={2} key={product.id}>
                 <div key={product.id}>
                   <ProductCardDetails
                     id={product.id}
