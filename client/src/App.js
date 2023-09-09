@@ -7,10 +7,12 @@ import Products from "./pages/Products";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MobileBottomNav from "./components/MobileBottomNav";
 import MobileTopNav from "./components/MobileTopNav";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <MobileTopNav />
       <Routes>
         <Route path="/" element={<Home />} />
