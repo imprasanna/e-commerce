@@ -11,6 +11,10 @@ const HomeBody = () => {
     <div>
       <div className="body-wrapper">
         <div className="banner"></div>
+        <Link to="/products" className="btn-container">
+          <button className="shop-button">Shop now!</button>
+        </Link>
+
         <div className="body">
           <p
             style={{ textAlign: "center" }}
