@@ -9,7 +9,7 @@ import ProductCardDetails from "../components/ProductCardDetails";
 import { Grid } from "@mui/material";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-const ITEMS_PER_PAGE = 6;
+const ITEMS_PER_PAGE = 8;
 
 const Products = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -65,22 +65,34 @@ const Products = () => {
           hasMore={displayedProducts.length < products.length}
           loader={<h4>Loading...</h4>}
         >
-          {displayedProducts.map((product, index) => {
-            return (
-              <Grid container className="lg:w-[80%] ml-auto mr-auto gap-y-8">
-                <Grid xs={6} sm={4} md={4} lg={3} rowSpacing={2} key={index}>
-                  <div key={index}>
-                    <ProductCardDetails
-                      id={product.id}
-                      name={product.name}
-                      image={product.img}
-                      price={product.price}
-                    />
-                  </div>
+          {/* <Stack
+            direction="row"
+            spacing={2}
+            justifyContent="center"
+            alignItems="center"
+            > */}
+          <Grid container className="lg:w-[80%] ml-auto mr-auto gap-y-8">
+            {displayedProducts.map((product) => {
+              return (
+                <Grid
+                  xs={6}
+                  sm={4}
+                  md={4}
+                  lg={3}
+                  rowSpacing={2}
+                  key={product.id}
+                >
+                  <ProductCardDetails
+                    id={product.id}
+                    name={product.name}
+                    image={product.img}
+                    price={product.price}
+                  />
                 </Grid>
-              </Grid>
-            );
-          })}
+              );
+            })}
+            {/* </Stack> */}
+          </Grid>
         </InfiniteScroll>
       </p>
     </div>
