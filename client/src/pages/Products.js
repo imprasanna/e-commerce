@@ -6,16 +6,17 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import "../styles/products.css";
 import products from "../utils/products";
 import ProductCardDetails from "../components/ProductCardDetails";
-import { Grid } from "@mui/material";
+import { Grid, Box, CircularProgress } from "@mui/material";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const ITEMS_PER_PAGE = 8;
 
 const Products = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(2);
   const [displayedProducts, setDisplayedProducts] = useState(
     products.slice(0, ITEMS_PER_PAGE)
   );
+  // const [hasMore, setHasMore] = useState(true);
 
   const fetchMoreData = () => {
     setTimeout(() => {
@@ -28,6 +29,11 @@ const Products = () => {
 
       // Slice the product array to get the items for the next page
       const nextItems = products.slice(startIndex, endIndex);
+
+      // if (displayedProducts.length === 0) {
+      //   setHasMore(false);
+      //   return;
+      // }
 
       // Append the next items to the displayedProducts array
       setDisplayedProducts([...displayedProducts, ...nextItems]);
@@ -62,8 +68,20 @@ const Products = () => {
         <InfiniteScroll
           dataLength={displayedProducts.length}
           next={fetchMoreData}
-          hasMore={displayedProducts.length < products.length}
-          loader={<h4>Loading...</h4>}
+          hasMore={products.length > displayedProducts.length}
+          loader={
+            <Box
+              sx={{
+                width: "100%",
+                height: "100px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <CircularProgress />
+            </Box>
+          }
         >
           {/* <Stack
             direction="row"

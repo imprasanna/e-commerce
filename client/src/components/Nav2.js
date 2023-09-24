@@ -29,7 +29,7 @@ const Nav2 = () => {
       <div className="lg:w-[80%] lg:flex lg:justify-between lg:items-center lg:ml-auto lg:mr-auto lg:pt-2 lg:pb-2 xl:pb-3 xl:pt-3">
         <img
           onClick={handleLogoClick}
-          className="logo lg:w-[20%] 2xl:w-[15%]"
+          className="logo lg:w-[20%] 2xl:w-[15%] cursor-pointer"
           src={logo}
           alt="logo"
         />

@@ -121,7 +121,7 @@ const products = [
   },
   {
     id: 21,
-    name: "Smile K3 Mini Drone - 4k HD Wide-Angle, Air Pressure Altitude Hold Foldable Quadcopter RC Drone",
+    name: "Smile K3 Mini Drone - 4k HD Wide-Angle, Air Pressure Altitude Quadcopter Drone",
     img: "https://static-01.daraz.com.np/p/1db7f85a5b54670a60b4549a084eb17c.jpg",
     price: "2850",
   },
@@ -139,7 +139,7 @@ const products = [
   },
   {
     id: 24,
-    name: "T800 Ultra Smartwatch Series 8 1.99 Inch Smart Watch IP67 Waterproof Wireless Charging Fitness Bracelet",
+    name: "T800 Ultra Smartwatch Series 1.99 Inch Smart Watch",
     img: "https://static-01.daraz.com.np/p/f95c4bbbc93113feb1687b6f98dca7bf.jpg",
     price: "1699",
   },
@@ -175,7 +175,7 @@ const products = [
   },
   {
     id: 30,
-    name: "P47 Wireless Bluetooth Foldable Headphones (Fm/Wireless/Tf Card Model)",
+    name: "P47 Wireless Bluetooth Foldable Headphones",
     img: "https://static-01.daraz.com.np/p/mdc/fb6aec09610b14b1be6e838fb55e3975.jpg",
     price: "550",
   },
