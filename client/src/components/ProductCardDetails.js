@@ -19,7 +19,7 @@ const ProductCardDetails = (props) => {
           elevation={hoverItemId === props.id ? 6 : 0}
           onMouseEnter={() => elevateBox(props.id)}
           onMouseLeave={lowerBox}
-          className="flex items-center justify-between flex-col mt-4 lg:mb-12 border-[#e0e0e0] border-[1px] rounded p-2 w-[95%] xs:w-[90%] lg:w-[90%] ml-auto mr-auto h-[340px] md1:h-[400px]"
+          className="flex items-center justify-between flex-col mt-4 lg:mb-12 border-[#e0e0e0] border-[1px] rounded p-2 w-[95%] xs:w-[90%] lg:w-[90%] ml-auto mr-auto h-[340px] md1:h-[450px]"
         >
           <img
             src={props.image}
