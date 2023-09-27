@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MobileBottomNav from "./components/MobileBottomNav";
 import MobileTopNav from "./components/MobileTopNav";
 import ScrollToTop from "./components/ScrollToTop";
+import ProductDetail from "./pages/ProductDetail";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/carts" element={<Carts />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/products/:productId" element={<ProductDetail />} />
       </Routes>
       <MobileBottomNav />
     </BrowserRouter>
