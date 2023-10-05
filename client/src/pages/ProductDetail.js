@@ -19,16 +19,12 @@ const ProductDetail = () => {
       <div className="w-[80%] ml-auto mr-auto mt-4 mb-4">
         <Breadcrumbs aria-label="breadcrumb">
           <Link underline="hover" color="inherit" href="/">
-            MUI
+            Home
           </Link>
-          <Link
-            underline="hover"
-            color="inherit"
-            href="/material-ui/getting-started/installation/"
-          >
-            Core
+          <Link underline="hover" color="inherit" href="/products">
+            Products
           </Link>
-          <Typography color="text.primary">Breadcrumbs</Typography>
+          <Typography color="text.primary">{product}</Typography>
         </Breadcrumbs>
         <Paper sx={{ background: "#f1f1f1" }} elevation={1}>
           This is a paper
