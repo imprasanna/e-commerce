@@ -17,7 +17,7 @@ const ProductDetail = () => {
       <Nav2 />
       <Nav3 />
       <div className="w-[80%] ml-auto mr-auto mt-4 mb-4">
-        <Breadcrumbs aria-label="breadcrumb">
+        <Breadcrumbs className="hidden lg:block" aria-label="breadcrumb">
           <Link underline="hover" color="inherit" href="/">
             Home
           </Link>
