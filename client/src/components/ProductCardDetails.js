@@ -18,9 +18,9 @@ const ProductCardDetails = (props) => {
   };
 
   const handleProductOpen = (id) => {
-    const foundProduct = products.find((product) => {
-      return product.id === id;
-    });
+    // console.log("ID", id);
+    // console.log("PRODUCTS", products);
+    const foundProduct = products.find((product) => product.id === id);
     // console.log("FOUND PRODUCT", foundProduct);
     dispatch(showProductDetails(foundProduct));
   };

@@ -9,7 +9,7 @@ import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
 
 const ProductDetail = () => {
-  let { product } = useSelector((state) => state.product);
+  let { productsShow } = useSelector((state) => state.product);
 
   return (
     <div>
@@ -24,7 +24,7 @@ const ProductDetail = () => {
           <Link underline="hover" color="inherit" href="/products">
             Products
           </Link>
-          <Typography color="text.primary">{product}</Typography>
+          <Typography color="text.primary">{productsShow.name}</Typography>
         </Breadcrumbs>
         <Paper sx={{ background: "#f1f1f1" }} elevation={1}>
           This is a paper
