@@ -1,13 +1,13 @@
 const products = [
   {
     id: 1,
-    name: "NAVIFORCE NF9074 Sports Black Dial Analog Watch For Men",
+    name: "NAVIFORCE NF9074 Sports Analog Watch For Men",
     img: "https://static-01.daraz.com.np/p/af2b52bc5d62a1ca8391008ba7f26e34.jpg_720x720.jpg_.webp",
     price: "1852",
   },
   {
     id: 2,
-    name: "Videocon 43 Full Hd Smart Android 9.00 LED TV Bezel Less",
+    name: "Videocon 43 Full Hd Smart Android 9.00 LED TV",
     img: "https://static-01.daraz.com.np/p/814736ccf173d316a3ac1c1f422b204c.jpg",
     price: "35000",
   },
@@ -55,7 +55,7 @@ const products = [
   },
   {
     id: 10,
-    name: "EWA A103 Extra Small Portable Bluetooth Speaker With High Bass",
+    name: "EWA A103 Extra Small Portable Bluetooth Speaker",
     img: "https://static-01.daraz.com.np/p/09c66583d72ef9370f82b1d7d8cd625b.jpg",
     price: "1100",
   },
@@ -67,7 +67,7 @@ const products = [
   },
   {
     id: 12,
-    name: "Selfie Stick For Mobile With Tripod Bluetooth Remote",
+    name: "Selfie Stick For Mobile With Tripod",
     img: "https://static-01.daraz.com.np/p/5f56ff378074c59f91496465921c88a9.jpg_200x200q90-product.jpg_.webp",
     price: "350",
   },
@@ -79,7 +79,7 @@ const products = [
   },
   {
     id: 14,
-    name: 'WEGA 32" Smart HD LED TV With 4GB ROM & Android 9(Black)',
+    name: 'WEGA 32" Smart HD LED TV',
     img: "https://np-live-21.slatic.net/kf/Sf7347c140405474b95ec1fb36a7e1ce3X.jpg",
     price: "17999",
   },
@@ -91,7 +91,7 @@ const products = [
   },
   {
     id: 16,
-    name: "TP Link TL-WR841N 300Mbps DSL Router - Latest Version",
+    name: "TP Link TL-WR841N 300Mbps DSL Router",
     img: "https://static-01.daraz.com.np/p/f43bc8f669bb051ed80f2a8abaac26f5.jpg",
     price: "2249",
   },
@@ -103,13 +103,13 @@ const products = [
   },
   {
     id: 18,
-    name: "KONKA 32 Inch HD LED TV (KE32MS316)",
+    name: "KONKA 32 Inch HD LED TV",
     img: "https://static-01.daraz.com.np/p/7df36250701a2d5d363b9c87a0e527e1.jpg",
     price: "20400",
   },
   {
     id: 19,
-    name: "OnePlus Nord N100 Dual SIM/ 4GB RAM/ 64 GB ROM /90 Hz /5000 mAh",
+    name: "OnePlus Nord N100",
     img: "https://static-01.daraz.com.np/p/777d32873a94c7e851ab9d13ef554e9e.jpg",
     price: "23500",
   },
@@ -121,19 +121,19 @@ const products = [
   },
   {
     id: 21,
-    name: "Smile K3 Mini Drone - 4k HD Wide-Angle, Air Pressure Altitude Quadcopter Drone",
+    name: "Smile K3 Mini Drone",
     img: "https://static-01.daraz.com.np/p/1db7f85a5b54670a60b4549a084eb17c.jpg",
     price: "2850",
   },
   {
     id: 22,
-    name: "Current Hot N Spicy Noodles 100 gm (Pack of 5 )",
+    name: "Current Hot N Spicy Noodles 100 gm",
     img: "https://static-01.daraz.com.np/p/408bda64763752bde45f09cda424cfb3.jpg",
     price: "238",
   },
   {
     id: 23,
-    name: 'Redmi 10A (RAM: 4 GB & ROM: 128 GB) 6.53" HD+ Display 5000mAh',
+    name: 'Redmi 10A (RAM: 4 GB & ROM: 128 GB) 6.53" HD+ Display',
     img: "https://static-01.daraz.com.np/p/4a79d4ef076b89a36911f2560e6acda3.jpg",
     price: "17999",
   },
@@ -145,7 +145,7 @@ const products = [
   },
   {
     id: 25,
-    name: "EWA A103 Extra Small Portable Bluetooth Speaker With High Bass",
+    name: "EWA A103 Extra Small Portable Bluetooth Speaker",
     img: "https://static-01.daraz.com.np/p/6d562c2917643fb34dc928e569576b43.jpg",
     price: "1075",
   },
@@ -157,7 +157,7 @@ const products = [
   },
   {
     id: 27,
-    name: 'VESTEL 32" Tempered Glass TV LED Television (32W8000G)',
+    name: 'VESTEL 32" Tempered Glass TV LED Television',
     img: "https://static-01.daraz.com.np/p/2e4dc934d3ceea0e5e4b43cdca77d7d4.jpg",
     price: "14240",
   },
