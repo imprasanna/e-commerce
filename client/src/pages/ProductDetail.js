@@ -62,7 +62,7 @@ const ProductDetail = () => {
                 <div className="details-block-3.1.1">
                   <button>-</button>
                   <input value="1" type="number" />
-                  <button>-</button>
+                  <button>+</button>
                 </div>
                 <button>Add to Cart</button>
               </div>
