@@ -40,7 +40,9 @@ const ProductDetail = () => {
             <Carousel>
               {productsShow.img &&
                 productsShow.img.map((item, i) => {
-                  <img src={item.url} key={item.url} alt={`Slide ${i + 1}`} />;
+                  return (
+                    <img src={item.url} key={item.url} alt={`Slide ${i + 1}`} />
+                  );
                 })}
             </Carousel>
 
@@ -51,7 +53,7 @@ const ProductDetail = () => {
 
             <div className="details-block-2">
               <ReactStars {...options} />
-              <span>{productsShow.numOfReviews} Reviews</span>
+              <span>{productsShow.ratings} Reviews</span>
             </div>
 
             <div className="details-block-3">
