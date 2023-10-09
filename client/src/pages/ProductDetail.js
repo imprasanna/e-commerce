@@ -10,7 +10,8 @@ import { Link } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import ReactStars from "react-stars";
-import ReactImageMagnify from "react-image-magnify";
+import { AiOutlineHeart } from "react-icons/ai";
+// import ReactImageMagnify from "react-image-magnify";
 
 const ProductDetail = () => {
   let { productsShow } = useSelector((state) => state.product);
@@ -25,10 +26,10 @@ const ProductDetail = () => {
   };
 
   const carouselOptions = {
-    showIndicators: false,
-    showThumb: false,
-    showStatus: false,
-    showArrows: false,
+    showIndicators: true,
+    showThumb: true,
+    showStatus: true,
+    showArrows: true,
   };
 
   return (
@@ -44,75 +45,113 @@ const ProductDetail = () => {
         </Breadcrumbs>
 
         <Paper sx={{ background: "#f1f1f1" }} elevation={1}>
-          <div className="details-blocks-container p-4">
-            <div className="w-[30%]">
+          <div className="details-blocks-container p-4 flex">
+            <div className="details-image-block w-[30%]">
               <Carousel {...carouselOptions}>
                 {productsShow.img &&
                   productsShow.img.map((item, i) => {
                     return (
-                      // <img src={item.url} key={item.url} alt={`Slide ${i + 1}`} />
-                      <div className="fluid">
-                        <div className="fluid-image-container">
-                          <ReactImageMagnify
-                            key={i + 1}
-                            {...{
-                              smallImage: {
-                                alt: `${productsShow.name}`,
-                                src: `${item.url}`,
-                                isFluidWidth: true,
-                              },
-                              largeImage: {
-                                src: `${item.url}`,
-                                width: 1426,
-                                height: 2000,
-                              },
-                              lensStyle: { background: "rgba(0, 0, 0, 0.6)" },
-                            }}
-                          />
-                        </div>
-                      </div>
+                      <img
+                        src={item.url}
+                        key={item.url}
+                        alt={`Slide ${i + 1}`}
+                      />
+                      // <div className="fluid">
+                      //   <div className="fluid-image-container">
+                      //     <ReactImageMagnify
+                      //       key={i + 1}
+                      //       {...{
+                      //         smallImage: {
+                      //           alt: `${productsShow.name}`,
+                      //           src: `${item.url}`,
+                      //           isFluidWidth: true,
+                      //         },
+                      //         largeImage: {
+                      //           src: `${item.url}`,
+                      //           width: 1426,
+                      //           height: 2000,
+                      //         },
+                      //         lensStyle: { background: "rgba(0, 0, 0, 0.4)" },
+                      //       }}
+                      //     />
+                      //   </div>
+                      // </div>
                     );
                   })}
               </Carousel>
             </div>
 
-            <div className="details-block-1">
-              <h2>{productsShow.name}</h2>
-              <p>Product #{productsShow.id}</p>
-            </div>
+            <div className="details-text-blocks ml-8 w-full">
+              <div className="details-block-1">
+                <h1 className="text-3xl font-medium">{productsShow.name}</h1>
+                {/* <p>Product #{productsShow.id}</p> */}
+              </div>
 
-            <div className="details-block-2">
-              <ReactStars {...options} />
-              <span>{productsShow.ratings} Reviews</span>
-            </div>
-
-            <div className="details-block-3">
-              <h1>Rs. {productsShow.price}</h1>
-              <div className="details-block-3.1">
-                <div className="details-block-3.1.1">
-                  <button>-</button>
-                  <input value="1" type="number" />
-                  <button>+</button>
+              <div className="details-block-2 flex justify-between items-center py-4 border-solid border-[#b5b5b5] border-b-[1px]">
+                <div className="flex items-center">
+                  <ReactStars {...options} />
+                  <span className="ml-2 pr-2 border-r-[1px] border-solid border-[#b5b5b5]">
+                    {productsShow.ratings}
+                  </span>
+                  <span className="pl-2">
+                    {productsShow.numOfReviews} Reviews
+                  </span>
                 </div>
-                <button>Add to Cart</button>
+
+                <div>
+                  <AiOutlineHeart className="text-3xl mr-8" />
+                </div>
+              </div>
+
+              <div className="details-block-3">
+                <h1 className="text-3xl font-semibold text-green-500 py-4">
+                  Rs. {productsShow.price}
+                </h1>
+                <div className="details-block-3.1">
+                  <p>
+                    Status:
+                    <b
+                      className={
+                        productsShow.stock >= 1
+                          ? "text-red-500"
+                          : "text-green-600"
+                      }
+                    >
+                      {productsShow.stock >= 1 ? " Instock" : " Out of Stock"}
+                    </b>
+                  </p>
+
+                  <div className="details-block-3.1.1 mt-2">
+                    <button className="bg-[#f57224] text-white px-3 rounded-l-md">
+                      -
+                    </button>
+                    <input
+                      value="1"
+                      type="number"
+                      className="w-[5%] text-center focus:outline-none"
+                    />
+                    <button className="bg-[#f57224] text-white px-3 rounded-r-md">
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div className="details-block-4 mt-6">
+                Description:
+                <br />
+                {productsShow.description}
+              </div>
+
+              <div className="w-[35%] mt-6 flex justify-between">
+                <button className="bg-[#2abbe8] text-white px-10 py-2">
+                  Buy Now
+                </button>
+                <button className="bg-[#f57224] text-white px-10 py-2">
+                  Add to Cart
+                </button>
               </div>
             </div>
-
-            <p>
-              Status:
-              <b
-                className={
-                  productsShow.stock >= 1 ? "text-red-500" : "text-green-600"
-                }
-              >
-                {productsShow.stock >= 1 ? "Instock" : "Out of Stock"}
-              </b>
-            </p>
-
-            <div className="details-block-4">
-              Description: {productsShow.description}
-            </div>
-            <button>Submit Review</button>
           </div>
         </Paper>
       </div>
