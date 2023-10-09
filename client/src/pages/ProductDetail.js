@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import ReactStars from "react-stars";
+import ReactImageMagnify from "react-image-magnify";
 
 const ProductDetail = () => {
   let { productsShow } = useSelector((state) => state.product);
@@ -21,6 +22,13 @@ const ProductDetail = () => {
     size: window.innerWidth < 600 ? 20 : 25,
     value: productsShow.ratings,
     isHalf: true,
+  };
+
+  const carouselOptions = {
+    showIndicators: false,
+    showThumb: false,
+    showStatus: false,
+    showArrows: false,
   };
 
   return (
@@ -36,15 +44,37 @@ const ProductDetail = () => {
         </Breadcrumbs>
 
         <Paper sx={{ background: "#f1f1f1" }} elevation={1}>
-          <div className="details-blocks-container">
-            <Carousel>
-              {productsShow.img &&
-                productsShow.img.map((item, i) => {
-                  return (
-                    <img src={item.url} key={item.url} alt={`Slide ${i + 1}`} />
-                  );
-                })}
-            </Carousel>
+          <div className="details-blocks-container p-4">
+            <div className="w-[30%]">
+              <Carousel {...carouselOptions}>
+                {productsShow.img &&
+                  productsShow.img.map((item, i) => {
+                    return (
+                      // <img src={item.url} key={item.url} alt={`Slide ${i + 1}`} />
+                      <div className="fluid">
+                        <div className="fluid-image-container">
+                          <ReactImageMagnify
+                            key={i + 1}
+                            {...{
+                              smallImage: {
+                                alt: `${productsShow.name}`,
+                                src: `${item.url}`,
+                                isFluidWidth: true,
+                              },
+                              largeImage: {
+                                src: `${item.url}`,
+                                width: 1426,
+                                height: 2000,
+                              },
+                              lensStyle: { background: "rgba(0, 0, 0, 0.6)" },
+                            }}
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
+              </Carousel>
+            </div>
 
             <div className="details-block-1">
               <h2>{productsShow.name}</h2>
