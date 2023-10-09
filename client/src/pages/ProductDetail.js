@@ -57,7 +57,7 @@ const ProductDetail = () => {
             </div>
 
             <div className="details-block-3">
-              <h1>{productsShow.price}</h1>
+              <h1>Rs. {productsShow.price}</h1>
               <div className="details-block-3.1">
                 <div className="details-block-3.1.1">
                   <button>-</button>
