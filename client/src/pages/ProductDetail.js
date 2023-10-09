@@ -138,16 +138,16 @@ const ProductDetail = () => {
               </div>
 
               <div className="details-block-4 mt-6">
-                Description:
+                <span className="font-semibold">Description:</span>
                 <br />
                 {productsShow.description}
               </div>
 
-              <div className="w-[35%] mt-6 flex justify-between">
-                <button className="bg-[#2abbe8] text-white px-10 py-2">
+              <div className="w-[40%] mt-6 flex justify-between">
+                <button className="bg-[#2abbe8] text-white text-lg px-10 py-2">
                   Buy Now
                 </button>
-                <button className="bg-[#f57224] text-white px-10 py-2">
+                <button className="bg-[#f57224] text-lg text-white px-10 py-2">
                   Add to Cart
                 </button>
               </div>
