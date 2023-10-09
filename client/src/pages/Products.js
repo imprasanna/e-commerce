@@ -103,7 +103,7 @@ const Products = () => {
                   <ProductCardDetails
                     id={product.id}
                     name={product.name}
-                    image={product.img}
+                    image={product.img[0].url}
                     price={product.price}
                   />
                 </Grid>

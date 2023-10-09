@@ -70,10 +70,10 @@ const ProductDetail = () => {
               Status:
               <b
                 className={
-                  productsShow.stock > 1 ? "text-red-500" : "text-green-600"
+                  productsShow.stock >= 1 ? "text-red-500" : "text-green-600"
                 }
               >
-                {productsShow.stock > 1 ? "Instock" : "Out of Stock"}
+                {productsShow.stock >= 1 ? "Instock" : "Out of Stock"}
               </b>
             </p>
 
