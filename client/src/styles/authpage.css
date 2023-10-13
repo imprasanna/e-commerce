@@ -1,0 +1,8 @@
+.ecommerce-illustration {
+    background-image: url("../utils/login-register-page-illustration.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 380px;
+    width: 380px;
+}
