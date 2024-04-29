@@ -1,0 +1,22 @@
+.unhidden-cross-icon {
+    padding: 0.75rem;
+    position: absolute;
+    top: -1rem;
+    right: -15rem;
+}
+
+.hidden-cross-icon {
+    display: none;
+}
+
+.ham-menu {
+    z-index: 999999;
+}
+
+.dark-overlay {
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(#00000066, #00000066);
+    position: fixed;
+    z-index: 50;
+}

@@ -1,0 +1,135 @@
+.banner {
+    background-image: url('../utils/banner1.png');
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -999;
+    position: relative;
+}
+
+.btn-container {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+
+.shop-button {
+    background-color: #292560;
+    color: white;
+    position: relative;
+    padding: 10px 30px 10px 30px;
+    bottom: 400px;
+    box-shadow: 3px 3px 5px #555050;
+    text-transform: uppercase;
+
+}
+
+.shop-button:hover {
+    color: #fdb03e;
+    box-shadow: 4px 4px 10px #555050;
+    background-color: #1d1a49;
+}
+
+.dark-banner {
+    background-image: linear-gradient(#00000066, #00000066), url('../utils/banner1.png');
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -999;
+    position: relative;
+}
+
+/* Media queries */
+
+@media (min-width: 375px) {
+    .banner {
+        background-image: url('../utils/banner6.png');
+        height: 500px;
+    }
+}
+
+@media (min-width: 425px) {
+    .banner {
+        background-image: url('../utils/banner7.png');
+        height: 500px;
+    }
+}
+
+@media (min-width: 768px) {
+    .banner {
+        background-image: url('../utils/banner2.png');
+        height: 400px;
+    }
+
+    .shop-button {
+        padding: 12px 40px 12px 40px;
+        bottom: 180px;
+        left: 230px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .banner {
+        background-image: url('../utils/banner3.png');
+        height: 400px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .banner {
+        background-image: url('../utils/banner4.png');
+        height: 500px;
+    }
+}
+
+@media (min-width: 1250px) {
+    .banner {
+        background-image: url('../utils/banner5.png');
+        height: 400px;
+    }
+}
+
+/* Media queries for dark image */
+@media (min-width: 375px) {
+    .dark-banner {
+        background-image: linear-gradient(#00000066, #00000066), url('../utils/banner6.png');
+        height: 500px;
+    }
+}
+
+@media (min-width: 425px) {
+    .dark-banner {
+        background-image: linear-gradient(#00000066, #00000066), url('../utils/banner7.png');
+        height: 500px;
+    }
+}
+
+@media (min-width: 768px) {
+    .dark-banner {
+        background-image: linear-gradient(#00000066, #00000066), url('../utils/banner2.png');
+        height: 400px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .dark-banner {
+        background-image: linear-gradient(#00000066, #00000066), url('../utils/banner3.png');
+        height: 400px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .dark-banner {
+        background-image: linear-gradient(#00000066, #00000066), url('../utils/banner4.png');
+        height: 500px;
+    }
+}
+
+@media (min-width: 1250px) {
+    .dark-banner {
+        background-image: linear-gradient(#00000066, #00000066), url('../utils/banner5.png');
+        height: 400px;
+    }
+}
